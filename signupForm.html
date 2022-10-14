@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>TFS Offical</title>
+    <!-- Required meta tags -->
+    <link rel="shortcut icon" href="img/logo6.png" type="image/x-icon">
+    
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="login and SingUp.css">
+    <!-- ___________Roboto Fonts__________ -->
+    <link href="http://fonts.cdnfonts.com/css/open-sans" rel="stylesheet">
+    <!-- ___________ Font Awesome __________ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  </head>
+  <body class="bg-white">
+    <section class="wrapper">
+        <div class="container">
+          <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4 text-center">
+            <!-- ___Logo___ -->
+            <div class="logo">
+              <img src="img/Logo2.png" class="img-fluid pb-3 pt-3" alt="logo"/>
+            </div>
+            <!-- __form__ -->
+            <form class="rounded bg-white shadow p-5" id="singUpForm">
+              <!-- __header__ -->
+              <h3 class="text-dark fw-bolder">Create an Account</h3>
+              <!-- __create account__ -->
+              <div class="fw-normal text-muted mb-4">
+                Alredy have an account? <a href="signin.html" class="text-primary fw-bold text-decoration-none"> &nbsp;Sign in here</a>
+              </div>
+
+              <!-- __Or___ -->
+              <div class="text-center text-muted text-uppercase mb-2">or</div>
+
+              <!-- gogle -->
+              <a href="#" class="btn btn-light login_with w-100 mb-4">
+                <img src="img/google-icon.svg" class="img-fluid me-3"/>Sign in with Google
+              </a>
+
+
+              <!-- ______Fields______ -->
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control txt" id="floatingFirstName" placeholder="First Name">
+                <label for="floatingFirstName">First name</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control txt" id="floatingLastName" placeholder="Last Name">
+                <label for="floatingLastName">Last Name</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control txt" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control txt" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+
+                <span class="password-info mt-2" style="font-size:13px ;">
+                    Use 8 or more characters with a mix of letters, number & synmbols.
+                </span>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control txt" id="floatingConfirmPassword" placeholder="Password">
+                <label for="floatingConfirmPassword">Confirm Password</label>
+              </div>
+
+              <div class="form-check d-flex align-items-center">
+                <input class="form-check-input" type="checkbox" id="gridCheck" checked>
+                <label class="form-check-label ms-3" for="gridCheck">
+                  I Agree <a href="#">Terms and Conditions.</a>
+                </label>
+              </div>
+
+              <!-- __continue___ -->
+              <a class="btn btn-primary submit-btn w-100 my-4" id="registor">Continue</a>
+              
+            </form>
+          </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    
+    <script>
+      let userArray = [];
+      document.querySelector("#registor").addEventListener("click",function(){
+        let fName = document.getElementsByClassName("txt")[0].value;
+        let lName = document.getElementsByClassName("txt")[1].value;
+        let email = document.getElementsByClassName("txt")[2];
+        let password = document.getElementsByClassName("txt")[3].value;
+        let confirm = document.getElementsByClassName("txt")[4].value;
+        
+        let check = document.getElementById("gridCheck");
+        
+        //____ Empty Value ____
+        if(fName == "" || lName == "" || email =="" || password=="" || confirm ==""){
+          Swal.fire({
+            icon: 'info',
+            title: 'Empty Values Please!',
+            text: 'Enter Value',
+            allowOutsideClick: false,
+            footer: '\n\n'
+          })
+        }
+        else{
+          // ____ Match Password ___
+          if(password!=confirm){
+            Swal.fire({
+              icon: 'info',
+              title: 'Password Not Match!',
+              text: 'Try Again',
+              allowOutsideClick: false,
+              footer: '\n\n'
+            })
+          }
+          else{
+            // ____ CheckBox is Checked _____
+            if(check.checked != true){
+              Swal.fire({
+                icon: 'info',
+                title: 'Confirm CheckBox Please!',
+                text: 'Try again',
+                allowOutsideClick: false,
+                footer: '<a href="">Why do I have this issue?</a>'
+              })
+            }
+            else{
+              // _____ if null Data Check_____
+              let oldUserData = JSON.parse(localStorage.getItem("userTable")) || [];
+              let i = 1;
+              console.log(email);
+
+              // _____ checking Email in Local Storage_____
+              if(oldUserData.some((user)=>user.uEmail == email.value)){
+                Swal.fire('Email Alredy Taken!','create New Email!','info')
+              }
+              else{
+                  // _____ Adding New Data To Local Storage_____
+                  userArray = oldUserData;
+                  userArray = {
+                    uId : oldUserData.length+1,
+                    fullName : (fName+lName),
+                    uEmail : email.value,
+                    uPassword : password,
+                    uType : "user",
+                  }
+                  oldUserData.push(userArray);
+                  localStorage.setItem("userTable",JSON.stringify(oldUserData));
+                
+                   // __ Showing userValue __
+                  let detaiAfterLogin = {
+                    userName : (fName+" "+lName),
+                    type: "user",
+                    id : oldUserData.length+1
+                  }
+                  localStorage.setItem("detaiAfterLogin",JSON.stringify(detaiAfterLogin)); 
+                  // __ Authenticaltion __
+                  localStorage.setItem("logger","1");
+
+                  
+                  //_____ Alert Box Box ___
+                  Swal.fire({
+                    icon: 'success',
+                    title: 'Registored Successfuly!',
+                    text: 'Completed',
+                    allowOutsideClick: false,
+                    footer: '<a href="">Why do I have this issue?</a>'
+                  }).then((result) => {
+                    window.location = "index.html"
+                  })
+                  // _____ Reset All Box ___
+                  document.getElementById("singUpForm").reset();
+              }  
+            }
+          }
+        }
+      })
+    </script>
+
+  </body>
+</html>

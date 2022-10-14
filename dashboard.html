@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>TFS Offical</title>
+    <!-- Required meta tags -->
+    <link rel="shortcut icon" href="img/logo6.png" type="image/x-icon">
+    
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.0-beta1 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+  integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- ___________Sweet Alert______________ -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+    body{
+      min-height: 100vh;
+      overflow-x:hidden ;
+      font-family: 'Ubuntu',sans-serif;
+    }
+    /*==============================================
+      Side Bar + Content Page
+      ============================================*/
+    .vertical-nav{
+      min-width: 17rem;
+      width: 17rem;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      /* box-shadow: 3px 3px 10px rgba(0,0,0,0.1); */
+      transition: all 0.4s;
+    }
+
+    /* ___ page content ___ */
+    .page-content{
+      width: calc(100%-17rem);
+      margin-left: 17rem;
+      transition: all 0.4s;
+    }
+    #sidebar.active{
+      margin-left: -17rem;
+    }
+    #content.active{
+      width: 100%;
+      margin: 0;
+    }
+
+    .vertical-nav .nav-link{
+      text-transform: capitalize;
+    }
+    
+    .vertical-nav .nav-link:hover{
+      background-color: #e3e3de !important;
+    }
+
+    .logout a:hover{
+      color: #e7e6e6 !important;
+    }
+  
+    /* _______ Responsive _______ */
+    @media (max-width:768px){
+      #sidebar{
+        margin-left: -17rem;
+      }
+      #sidebar.active{
+        margin-left: 0;
+      }
+      #content{
+        width: 100%;
+        margin: 0;
+      }
+      #content.active{
+        margin-left: 17rem;
+        width: calc(100% -17rem);
+      }
+    }
+
+    /*==============================================
+      DataTable
+      ============================================*/
+    .main-datatable{
+      border: 1px solid #f3f2f2;
+      border-bottom: 0;
+      /* box-shadow: 0px 2px 2px rgba(0,0,0,.05); */
+    }
+
+
+    /* ___design row,columns____ */
+    .main-datatable .dataTable.no-footer{
+      border-bottom: 1px solid #eee;
+    }
+
+    /* __ thead ___ */
+    .main-datatable .cust-datatable thead {
+      background-color: #f9f9f9;
+    }
+    .main-datatable .cust-datatable>thead>tr>th{
+      border-bottom-width: 0;
+      color: #443f3f !important;
+      font-weight: 600;
+      padding: 16px 15px;
+      vertical-align: middle;
+      padding-left:18px ;
+      text-align: center;
+    }
+    
+    .main-datatable .cust-datatable>tbody td{
+      padding: 10px 15px 10px 18px;
+      color:#333232 ;
+      font-size: 13px;
+      word-break: break-word;
+      border-color: #eee;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .main-datatable .cust-datatable>tbody tr{
+      border-top: none;
+    }
+    .main-datatable .table > tbody > tr:nth-child(even){
+      background-color: #f9f9f9;
+    }
+    .btn-group.open .dropdown-toggle{
+      box-shadow: none;
+    }
+
+    .main-datatable .dropdown_icon{
+      display: inline-block;
+      color: #8a8a8a !important;
+      font-size: 14px;
+      border: 1px solid #d4d4d4 !important;
+      padding: 9px 13px;
+      border-radius:50% ;
+      cursor: pointer;
+    }
+
+    .main-datatable .chart_icon{
+      display: inline-block;
+      color: #8a8a8a !important;
+      font-size: 13px;
+      border: 1px solid #d4d4d4 !important;
+      padding: 13px 13px;
+      border-radius:50% ;
+      cursor: pointer;
+    }
+
+    /* ____drop down____ */
+    .main-datatable .dropdown-menu{
+      padding: 0;
+      border-radius: 4px;
+      box-shadow: 10px 10px 20px #c8c8c8;
+      margin-top: 10px;
+      left:-65px;
+      top: 32px;
+    }
+    .main-datatable .dropdown-menu>li>a{
+      display: block;
+      padding: 12px 20px;
+      clear: both;
+      font-weight: normal;
+      line-height: 1.42857;
+      color: #333333;
+      white-space: nowrap;
+      border-bottom:1px solid #d4d4d4 ;
+    }
+    .main-datatable .dropdown-menu>li>a:hover, 
+    .main-datatable .dropdown-menu > li > a:focus{
+      color: #fff;
+      background-color: #007bff;
+    }
+
+    .main-datatable .dropdown-menu>li>a:hover i{
+      color:#fff;
+    } 
+    .main-datatable .dropdown-menu::before{
+      position: absolute;
+      top: -7px;
+      left: 83%;
+      display: inline-block;
+      border-right: 7px solid transparent;
+      border-bottom: 7px solid  grey;
+      border-left: 7px solid transparent;
+      border-bottom-color: grey;
+      content: '';
+    }
+
+    /*___ icon gap ___*/
+    .main-datatable .dropdown-menu i{
+      margin-right: 8px;
+    }
+
+
+    /*==============================================
+      Pagination
+      ============================================*/
+    .main-datatable .dataTables_wrapper .dataTables_paginate .paginate_button{
+      color: #999999;
+      background-color: #f6f6f6 !important;
+      border-color: #d4d4d4 !important;
+      border-radius: 40px;
+      margin: 5px 3px;
+    }
+    .main-datatable .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+      color: #fff !important;
+      border: 1px solid #3d96f5 !important;
+      background: #4da3ff !important;
+      box-shadow: none;
+    }
+    .main-datatable .dataTables_wrapper .dataTables_paginate .paginate_button.current,  
+    .main-datatable .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{ 
+      color: #fff !important;
+      border-color:transparent !important;
+      background: #007bff !important;
+    }
+    .main-datatable .dataTables_paginate{
+      padding-top: 0 !important ;
+      margin: 15px 10px;
+      float: right !important;
+    }
+
+
+    @media only screen and (max-width:1200px){
+      .overflow-x{
+        overflow-x: scroll;
+      }
+      .overflow-x::-webkit-scrollbar{
+        width: 5px;
+        height: 6px;
+      }
+      .overflow-x::-webkit-scrollbar-thumb{
+        background-color: orange;
+      }
+      .overflow-x::-webkit-scrollbar-track{
+        background-color: #007bff;
+      }
+    }
+
+
+  </style>
+
+  
+
+</head>
+
+<body>
+
+
+<!-- ____________________ Side Bar ________________________ -->
+<!-- userImage -->
+<div class="vertical-nav bg-light shadow position-fixed" id="sidebar">
+    <div class="py-4 px-3 bg-light">
+        <div class="media d-flex align-items-center">
+          <img src="img/profileIamge.jpg" alt="..." width="80" height="80" class="me-3 rounded-circle img-thumbnail shadow-sm"/>
+          <div class="media-body">
+            <h4 class="m-0">Boota</h4>
+            <p class="fw-bolder text-muted mb-0 mt-1">Admin here</p>
+          </div>
+        </div>
+    </div>
+
+
+  <!-- dashbarod -->
+  <p class="text-secondary fw-bold text-uppercase px-3 small py-4 mb-0">DashBoard</p>
+  <ul class="nav flex-column bg-white mb-0">
+    <li class="nav-item">
+      <a href="dashboard.html" class="nav-link text-dark bg-light" style=" background-color: #e3e3de !important">
+        <i class="fa fa-th-large me-3 text-primary f"></i>
+        home
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark bg-light">
+        <i class="fa fa-address-card me-3 text-primary f"></i>
+        about
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark bg-light">
+        <i class="fa fa-cubes me-3 text-primary f"></i>
+        services
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark bg-light">
+        <i class="fa fa-images me-3 text-primary f"></i>
+        Gallery
+      </a>
+    </li>
+  </ul>
+
+  <!-- chart -->
+  <p class="text-secondary fw-bold text-uppercase px-3 small py-4 mb-0">Charts</p>
+  <ul class="nav flex-column bg-white mb-0">
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark bg-light">
+        <i class="fa fa-area-chart me-3 text-primary f"></i>
+        area charts
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark bg-light">
+        <i class="fa fa-pie-chart me-3 text-primary f"></i>
+        bar charts
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark bg-light">
+        <i class="fa fa-line-chart me-3 text-primary f"></i>
+        pie charts
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark bg-light">
+        <i class="fa fa-th-large me-3 text-primary f"></i>
+        line charts
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- ____________________ Main_Content + Toggle Bar ________________________ -->
+<div class="page-content" id="content">
+  <div class="container-fluid bg-primary">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-between">
+        <button id="sidebarCollapse" type="button" class="btn btn-light bg-white shadow-sm mt-2 px-4  mb-2">
+          <i class="fa fa-bars me-2"></i>
+        </button>
+        <div class="d-flex">
+          <h6 class="mt-2 px-4  py-2 logout">
+            <a href="index.html" class="nav-link text-white">Go Home </a>
+          </h6>
+          <h6 class="mt-2 px-4  py-2 logout">
+            <a href="signin.html" class="nav-link text-white" id="logOut">Logout</a>
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+  <!-- ____________________ Table for User ________________________ -->
+  <div class="container pt-3 pe-3 pb-5">
+    <div class="row">
+      
+      <!-- ______Main dataTable_____ -->
+      <div class="col-md-12 main-datatable shadow px-3">
+        <div class="card-body">
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" >
+                <div class="modal-content" id="dialog">
+            
+                </div>
+              </div>
+            </div>
+
+          <!-- _____________________ Header of Table ___________________ -->
+          <div class="row d-flex py-4 justify-content-start align-content-end align-items-end">
+            <!-- ____ Create Button _____ -->
+            <div class="col-sm-4 createSegement">
+              <a class="btn btn-outline-primary create_new" onclick="createUserAdmin(0)" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                <span class="fa fa-plus"></span>
+                Create New
+              </a>
+            </div>
+            <!-- ______ Search bar ______ -->
+            <div class="col-sm-8">
+                <div class="row searchInput d-flex justify-content-end ">
+                  <label for="email" class="col-sm-2 col-form-label text-end">Search</label>
+                  <div class="col-sm-10">
+                    <input type="search" class="form-control" id="filterbox" placeholder="">
+                  </div>
+                </div>
+            </div>
+          </div>
+
+          <!-- _____________________ Header of Table ___________________ -->
+          <div class="overflow-x">
+            <table class="table table-sm cust-datatable dataTable no-footer" id="filtertable" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th style="min-width: 50px;">ID</th>
+                  <th style="min-width:150px">Name</th>
+                  <th style="min-width:150px">Password</th>
+                  <th style="min-width:150px">Email</th>
+                  <th style="min-width:150px">Status</th>
+                  <th style="min-width:150px">Action</th>
+                </tr>
+              </thead>
+              <tbody id="tablebody">
+                <!-- <tr>
+                  <td>1</td>
+                  <td>Dummy</td>
+                  <td><span class="mode mode_process">Proccess</span></td>
+                  <td>17-Apr-2020</td>
+                  <td><span class="mode mode_on">Active</span></td>
+                  <td>
+                    <div class="btn-group">
+                      <a class="dropdown_icon" data-bs-toggle="dropdown">
+                        <i class="fa fa-pencil-square"></i>
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-end">
+                        <li>
+                          <a href="#" target="_blank" class="dropdown-item">
+                            Dummy Details
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" target="_blank" class="dropdown-item">
+                            Dummy Details
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" target="_blank" class="dropdown-item">
+                            Dummy Details
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" target="_blank" class="dropdown-item">
+                            Dummy Details
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <span class="actionCust">
+                      <a href="#"><i class="fa fa-line-chart chart_icon"></i></a>
+                    </span>
+
+                    <div class="btn-group dropdown">
+                      <a href="#" class="dropdown_icon" data-bs-toggle="dropdown">
+                        <i class="fa fa-ellipsis-h"></i>
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-end dropdown_more">
+                        <li>
+                          <a href="#" target="_black" class="dropdown-item">
+                            <i class="fa fa-clone"></i> Duplication
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" target="_black" class="dropdown-item">
+                            <i class="fa fa-trash"></i> Delete
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" target="_black" class="dropdown-item">
+                            <i class="fa fa-list"></i> Activity
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+  integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+  integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+<script src="dashboard.js"></script>
+<script>
+  document.getElementById("sidebarCollapse").addEventListener("click",function(){
+    document.querySelector("#sidebar").classList.toggle('active');
+    document.querySelector("#content").classList.toggle('active');
+  })
+
+  
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>TFS Offical</title>
+    <!-- Required meta tags -->
+    <link rel="shortcut icon" href="img/logo6.png" type="image/x-icon">
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <style>
+            /* body{
+                margin: 0;
+                padding: 0;
+                background-color: #e9f0f5;
+    
+            } */
+            .title{
+                margin-top: 40px;
+            }
+            .title h2{
+                font-weight: bold;
+            }
+            .timeline{
+                margin-top: 40px;
+                margin-bottom: 40px;
+                position: relative;
+                box-sizing: border-box;
+            }
+            .timeline::before{
+                content: '';
+                position: absolute;
+                left: 50%;
+                width: 2px;
+                height: 100%;
+                background-color: #303249;
+                /* --- var --- */
+                z-index: -1;
+            }
+            
+            .timeline ul{
+                margin: 0;
+                padding: 0;
+            }
+            .timeline ul li{
+                list-style: none;
+                position: relative;
+                width: 50%;
+                padding: 20px 40px;
+                box-sizing: border-box;
+            }
+            .timeline ul li:nth-child(odd){
+                float: left;
+                text-align: right;
+                clear: both;
+            }
+            .timeline ul li:nth-child(even){
+                float: right;
+                text-align: left;
+                clear: both;
+            }
+            .content{
+                padding-bottom: 20px;
+                border:1px solid #eee;
+                padding: 10px 10px;
+                border-radius:20px ;
+                background-color:#fff;
+                text-align: justify;
+            }
+            .timeline ul li:nth-child(odd)::before{
+                content: '';
+                position: absolute;
+                top:25px;
+                right: -11px;
+                width: 20px;
+                height: 20px;
+                background-color: #c23941;
+                border-radius: 50%;
+                box-shadow: 0 0 0 3px rgba(233,33,99,0.2);
+            }
+            .timeline ul li:nth-child(even)::before{
+                content: '';
+                position: absolute;
+                top:25px;
+                left: -9px;
+                width: 20px;
+                height: 20px;
+                background-color: #c23941;
+                border-radius: 50%;
+                box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.2);
+            }
+            .timeline ul li h3{
+                margin: 0;
+                padding: 0;
+                font-weight: 600;
+                color: #303e49;
+            }
+    
+            .timeline ul li p{
+                margin: 10px 0 0;
+                padding: 0;
+                line-height: 1.7;
+            }
+            .timeline ul li h4{
+                margin: 0;
+                padding: 0;
+                font-size: 16px;
+            }
+            .timeline ul li:nth-child(odd) .time{
+                position: absolute;
+                top:12px;
+                right: -165px;
+                margin: 0;
+                padding: 8px 16px;
+                background-color: #303249;
+                color: #fff;
+                border-radius:18px;
+            }
+            
+            .timeline ul li:nth-child(even) .time{
+                position: absolute;
+                top:12px;
+                left: -165px;
+                margin: 0;
+                padding: 8px 16px;
+                background-color: #303249;
+                color: #fff;
+                border-radius:18px;
+            }
+            
+        </style>
+         
+  </head>
+  <body id="Home" onload="onload()" class="position-relative">
+    <!-- ___________________________ Loader _________________________ -->
+    <div class="position-fixed w-100 h-100 top-0 start-0 bg-white" style="z-index: 9999;" id="loader">
+        <div class="d-flex justify-content-center align-items-center align-content-center" style="height: 100%;">
+            <img src="img/loading.gif" alt="test">
+        </div>
+    </div>
+
+    
+     <!-- ______________________Navigation_Bar________________________ -->
+     <div class="navbar-sticky pb-0 pt-1">
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-dark px-5 py-0">
+                <a href="index.html" class="navbar-brand py-0 my-0">
+                    <div class="d-flex justify-content-start align-content-center h-100">
+                        <img src="img/logo6.png" alt="" style="height: 50px;width: 50px;" id="logo">
+                        <p class="fs-2 mt-1" id="logoColor">TFS</p>
+                    </div>
+                </a>
+                <button class="fa-solid fa-bars-staggered bg-transparent text-white d-lg-none border-0 fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav me-auto mt-2 mt-lg-0" id="ul">
+                        <li class="nav-item">
+                            <a class="nav-link text-white li_a home" href="index.html">Home <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white li_a" href="Product.html">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white li_a act" href="About Us.html">About Us</a>
+                        </li>   
+                        <li class="nav-item">
+                            <a class="nav-link text-white li_a" href="Contact Us.html">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white li_a" href="feedback.html">FeedBack</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto" id="ul">
+                        <li class="nav-item d-none d-lg-none"  id="uName1">
+                            <a class="nav-link text-white li_a text-uppercase me-3 fw-bold" style="cursor: pointer;"  id="userName1"></a>
+                        </li>
+
+                        <!-- _______ Add to WishList ________ -->
+                        <li class="nav-item d-none d-lg-block">
+                            <a href="wishProductPage.html" class="nav-link text-white" >
+                                <span class="fs-4 position-relative fa-regular fa-heart" style="cursor: pointer;">
+                                    <span class="top-0 start-100 translate-middle badge px-2 pb-1 pt-0 rounded-pill bg-warning  text-black">
+                                        <small style="font-size:12px;" id="wishList" class="fw-bold">0</small>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        
+                        <!-- _______ Add to Cart ________ -->                        
+                        <li class="nav-item d-none d-lg-block">
+                            <!-- ___ DropDown ___ -->
+                            <div class="dropdown">
+                                <!-- ___ show DropDown ___ -->
+                                <a class="nav-link text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                                    <span class="mt-1 fs-5 position-relative fas fas-solid fa-shopping-cart" style="cursor: pointer;">
+                                        <span class="top-0 start-100 translate-middle badge rounded-pill text-black bg-warning">
+                                            <small style="font-size:11px;" id="totalcard" class="fw-bold">0</small>
+                                        </span>
+                                    </span>
+                                </a>
+                                
+                                <!-- ___ DropDown-Menu ___ -->
+                                <div class="dropdown-menu dropdown-menu-end p-0 shadow" style="width: 400px;">
+                                    <div class="container-fluid">
+                                        <!-- _header__ -->
+                                        <div class="row mt-3 border-bottom">
+                                            <div class="col-12border-bottom">
+                                                <h3 class="text-center">Product Card</h3>
+                                            </div>
+                                        </div>
+
+                                        <!-- __header__ -->
+                                        <div class="row py-2 border-bottom px-2">
+                                            <div class="col-6 d-flex justify-content-around">
+                                                <span>Total Price : </span>
+                                                <span id="T_price" class="text-danger fw-bold"> $0</span>
+                                            </div>
+                                            <div class="col-6 d-flex justify-content-around">
+                                                <span>TotalCard : </span>
+                                                <span id="T_Card">0</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- product -->
+                                        <div class="row dropDiv pe-3 ps-3 border">
+                                            <div class="overflow-scroll scrol-div " id="productDiv" style="max-height: 330px;min-height: 100px;">
+                                            </div> 
+                                        </div>
+
+                                        <!-- go To card -->
+                                        <div class="row mb-2 pt-3  border-top">
+                                            <div class="col-12 pb-1">
+                                                <div class="d-flex justify-content-around">
+                                                    <a href="cardDetail.html" class="btn btn-primary">GoToCard</a>
+                                                    <button class="btn btn-warning" id="clearAll">Clear All_Card</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </li>
+
+                        <li class="nav-item d-none d-lg-none"  id="dashboard1">
+                            <a class="nav-link text-white text-uppercase fw-bold me-2"  href="dashboard.html" style="cursor: pointer;">
+                                <img src="img/dashboard-58.png" width="40px" height="25px"><span class="text ms-2"></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item d-none d-lg-none"  id="logOut1">
+                            <a class="nav-link mt-1 pt-0 text-warning text-uppercase fw-bold" onclick="logOut_SingIn(2)">
+                                <img src="img/shutdown.png" style="width:32px;height: 32px;cursor: pointer;"/>
+                            </a>
+                        </li>
+                        <li class="nav-item d-none d-lg-none" id="login_Option1">
+                            <a class="nav-link mt-1 pt-0 text-warning" style="cursor: pointer;" onclick="logOut_SingIn(1)">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- __ 2nd Nav  -->
+            <div class="bg d-block d-lg-none">
+                <nav class="py-2 px-2">
+                    <div class="d-flex justify-content-between flex-wrap">
+                        <div  id="logOut2" class="d-none">
+                            <a class="nav-link text-warning li_a text-uppercase fw-bold" onclick="logOut(2)" style="cursor: pointer;">
+                                <img src="img/shutdown.png" style="width:32px;height: 32px;"/>
+                            </a>
+                        </div>
+                        <div id="dashboard2" class="d-none">
+                            <a class="nav-link text-white li_a text-uppercase fw-bold"  href="dashboard.html" style="cursor: pointer;">
+                                <img src="img/dashboard-58.png" width="40px" height="25px"><span class="text ms-2"></span>
+                            </a>
+                        </div>
+                        
+                        <!-- _______ Add to WishList ________ -->
+                        <div class="d-block">
+                            <a href="wishProductPage.html" class="nav-link text-white" >
+                                <span class="fs-4 position-relative fa-regular fa-heart" style="cursor: pointer;">
+                                    <span class="top-0 start-100 translate-middle badge px-2 pb-1 pt-0 rounded-pill bg-warning  text-black">
+                                        <small style="font-size:12px;" id="wishList1" class="fw-bold">0</small>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                        <div>
+                            <!-- <h2 class="text-primary sub-heading" style="font-size: 45px;">Product</h2> -->
+                            <span class="fs-5 position-relative mt-2 fas fas-solid text-white fa-shopping-cart" style="cursor: pointer;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvas-backdrop">
+                                <span class="top-0 start-100 translate-middle badge rounded-pill bg-warning">
+                                    <small style="font-size:11px;" id="totalCanv_card" class="fw-bold">0</small>
+                                </span>
+                            </span>
+                        </div>
+                        <div  id="login_Option2" class="d-none"  id="login_Option2">
+                            <a href="signin.html" class="nav-link mt-1 pt-0 text-warning text-uppercase fw-bold" onclick="logOut_SingIn(1)" style="cursor: pointer;">Login</a>
+                        </div>
+                        <div id="uName2" class="d-none">
+                            <a class="nav-link text-white li_a text-uppercase fw-bold" style="cursor: pointer;"  id="userName2">
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- ____________ OffCanvase On Responsive ____________ -->
+    <div class="row d-block d-lg-none">
+        <div class="col-12 d-flex justify-content-between">
+            <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                  <h3 class="offcanvas-title" id="offcanvasExampleLabel">Cart Products</h3>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+
+                <div class="offcanvas-body  border-top border-primary overflow-hidden">
+                  <div class="row">
+
+                    <!-- ___ Cart To be Render ___ -->
+                    <div class="row position-absolute overflow-scroll pb-2 scrol-div productDiv" style="height: 73%;">
+                        
+                    </div>
+
+                    <!-- ___ Bottom ___ -->
+                    <div class="row  border-top border-primary justify-content-center position-absolute bottom-0 w-100 bg-white"  style="height: 15%;">
+                        <div class="pt-2 d-flex justify-content-between">
+                            <span class="fw-bolder">Total Card : </span>
+                            <span class="text-primary" id="Canv_card">0</span>
+                        </div>
+                        <div class="pb-2 d-flex justify-content-between">
+                            <span class="fw-bolder">Total Price : </span>
+                            <span id="Canv_price" class="text-danger fw-bold"> $0</span>
+                        </div>
+                    </div>
+
+                  </div>
+                  
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ______________________ Theme_Changer ________________________ -->
+    <div class="position-fixed end-0 bg-white pe-3 pt-2 ps-3 pb-2 rounded-start shadow themeDiv" style="top: 140px;z-index: 99;">
+        <img src="img/themeyIcon.png" style="cursor: pointer;width: 35px; height: 35px;" class="themeToggle"/>
+    </div>
+
+
+    <!-- ______________________ Section 1 ________________________ -->
+    <div id="about" class="about_wrapper py-5">
+        <div class="container">
+            <div class="row">
+                <!-- responsive 1 -->
+                <div class="col-xl-4 col-lg-5 mb-4 mb-lg-0 order-lg-1 order-2">
+                    <!-- card -->
+                    <div class="card rounded-0 border-0 text-center mt-5">
+                        <!-- card body -->
+                        <div class="card-body pt-5 pb-5 bg-light">
+                            <h3 class="text-primary fs-1">Future Work</h3>
+                            <p>
+                                We Are Plaining Many Things For Features to Make it Complete Fashion Working Product Website For localStorage
+                            </p>
+                            <a href="#" class="btn btn-outline-primary main-btn mt-4">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- responsive 2 -->
+                <div class="col-xl-8 col-lg-7 mb-4 mb-lg-0 order-lg-2 order-1">
+                    <img src="img/Banner4.jpg" class="img-fluid" />
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    
+    <section class="container">
+        <div class="container overflow-hidden">
+           <div class="titlle text-center">
+                <h2>Working Plains on This Project</h2>
+           </div>
+           <div class="timeline">
+            <ul>
+                <li class="mt-5">
+                    <div class="content"  data-aos="fade-right"  style="box-shadow: var(--shadow);">
+                        <h3>Plaining</h3>
+                        <p class="p-2">
+                            Started Basic Structure of WebPage
+                        </p>
+                    </div>
+                    <div class="time">
+                        <h4>2 October 2022</h4>
+                    </div>
+                </li>
+                <li class="mt-5">
+                    <div class="content"   data-aos="fade-left" style="box-shadow: var(--shadow);">
+                        <h3>Getting Images</h3>
+                        <p class="p-2">
+                            Making The Collection Of Images for the Web Page
+                        </p>
+                    </div>
+                    <div class="time">
+                        <h4>3 October 2022</h4>
+                    </div>
+                </li>
+                <li class="mt-5">
+                    <div class="content"  style="box-shadow: var(--shadow);"  data-aos="fade-right">
+                        <h3>Professional Logo</h3>
+                        <p class="p-2">
+                            Started to Make Professional logo for Webpage.<br>
+                            Gaining Ideas from other Webpages Like Amazon Daraz. <br>And other Online Store Application
+                        </p>
+                    </div>
+                    <div class="time">
+                        <h4>4 October 2022</h4>
+                    </div>
+                </li>
+                <li class="mt-5">
+                    <div class="content"  style="box-shadow: var(--shadow);"  data-aos="fade-left">
+                        <h3>Home Page</h3>
+                        <p>
+                            Designing Home Page was Deficult for This but With 2 to 3 days its comleted
+                        </p>
+                    </div>
+                    <div class="time">
+                        <h4>5 October 2022</h4>
+                    </div>
+                </li>
+                <li class="mt-5">
+                    <div class="content"  style="box-shadow: var(--shadow);"  data-aos="fade-right">
+                        <h3>Product Page</h3>
+                        <p>
+                            We Did not Made Product Page with Fixed Days.<br>
+                            Working with About_us Contact_Us Feedback Page <br>
+                            As well as Desighning Product Page 
+                        </p>
+                    </div>
+                    <div class="time">
+                        <h4>8 October 2022</h4>
+                    </div>
+                </li>
+                <li class="mt-5">
+                    <div class="content"  style="box-shadow: var(--shadow);"  data-aos="fade-left">
+                        <h3>Login, SignUp Page</h3>
+                        <p>
+                            Making Login, SignUp Page Big Challange.
+                        </p>
+                    </div>
+                    <div class="time">
+                        <h4>10 October 2022</h4>
+                    </div>
+                </li>
+                <li class="mt-5">
+                    <div class="content"  style="box-shadow: var(--shadow);"  data-aos="fade-right">
+                        <h3>DashBoard & LocalStorage</h3>
+                        <p>
+                            Adding Local Storage for Login and Signup User and Attach Dashboard with it.
+                            Managing Registored User With Dashboard
+                        </p>
+                    </div>
+                    <div class="time">
+                        <h4>12 October 2022</h4>
+                    </div>
+                </li>
+                <li class="mt-5">
+                    <div class="content"  style="box-shadow: var(--shadow);"  data-aos="fade-right">
+                        <h3>Cart & WishList</h3>
+                        <p>
+                            Creating Add To Cart and Wish List <br>
+                            With the Help of LocalStorage
+                        </p>
+                    </div>
+                    <div class="time">
+                        <h4>13 October 2022</h4>
+                    </div>
+                </li>
+                <div style="clear:both">
+
+                </div>
+            </ul>
+           </div>
+        </div>
+        <br>
+    </section>
+
+    <!-- ______________________ Section 2 ________________________ --> 
+    <!-- 
+    <div class="container-fluid mb-5 pb-5" style="opacity: 0.9;height:auto;">
+        <div class="container pt-4">
+            <div class="row g-0">
+                <div class="col-lg-4">
+                    <div class="section-heading text-center pt-5 pb-4">
+                        <h2 class="text-primary sub-heading" style="font-size: 45px;">About Us</h2>
+                    </div>
+                </div>
+                <div class="col-lg-1">
+                </div>
+                <div class="col-lg-6 p-3 aboutsUsText">
+                    <p style="text-align: justify;">
+                        Our Fashion Store is the one Of the Leading MarketPlace in Pakistan. Growing Daily and Daily of Thousands of Buyers Are Buying Product form us. We Provide Immediate and easy Access to 10 million products in more than 100+category and delivers more than 2 million packages every month to all corners of Pakitan Country.
+                        Our Fashion Store is the one Of the Leading MarketPlace in Pakistan. Growing Daily and Daily of Thousands of Buyers Are Buying Product form us. We Provide Immediate and easy Access to 10 million products in more than 100+category and delivers more than 2 million packages every month to all corners of Pakitan Country.
+                    </p>  
+                </div>
+            </div>
+
+            <div class="row g-0">
+                <div class="col-lg-6 pe-3 order-lg-1 order-2 me-5 aboutsUsText">
+                    <p style="text-align: justify;">
+                        Story of our website is started like this the owner of this webiste Mr.Shaaen is is going to buy product from Lahor market but this product was avaliable in Karachi Market so as being student in We development He decited to 
+                        make WebSite Which work Globly to Pakistan Country. If Anyone Whants to buy product from any corner of Pakistan so he can buy Without going to market.
+                        avaliable in Karachi Market so as being student in We development He decited to 
+                        make WebSite Which work Globly to Pakistan Country. If Anyone Whants to buy product from any corner of Pakistan so he can buy Without going to market.
+                    </p>  
+                </div>
+                <div class="col-lg-1">
+                </div>
+                <div class="col-lg-4 order-lg-2 order-1">
+                    <div class="section-heading text-center pt-5 pb-4">
+                        <h2 class="text-primary sub-heading" style="font-size: 45px;">Our Story</h2>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    -->
+
+
+    <!-- ______________________ TimeLine Section 3 ________________________ --> 
+
+
+    <!-- ________________________Footer________________________ -->
+    <div class="text-white p-3 mt-5" id="footer">
+        <div class="mt-3">
+            <h1 class="text-center fw-bold">Want To Be a Partner with Us?</h1>
+            <p class="text-center">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam corporis fugiat nihil alias
+                . Inventore eligendi, nisi porro voluptatibus amet molestiae ex eaque ea delectus cumque blanditiis animi,
+                 eum nostrum doloribus?
+                 <center><Button class="btn btn-black btn-outline-light">Get Started</Button></center>
+            </p><br>
+            <hr>
+        </div>
+        <div class="row justify-content-around text-center text-md-start">
+            <!-- ___col_1___ -->
+            <div class="col-md-2 text-center">
+                <h1 class="fw-bold m-3">Thrift</h1>
+                <h5>Fashion Store</h5>
+            </div>
+
+            <!-- ___col_2___ -->
+            <div class="col-md-2 mt-2">
+                <ul class="list-unstyled">
+                    <li class="fw-bold">Busnise With Us</li>
+                    <li><a href="" class="text-decoration-none text-white">Website</a></li>
+                    <li><a href="" class="text-decoration-none text-white">Social Media</a></li>
+                    <li><a href="" class="text-decoration-none text-white">Branding</a></li>
+                </ul>
+            </div>
+
+            <!-- ___col_3___ -->
+            <div class="col-md-2 mt-2">
+                <ul class="list-unstyled">
+                    <li class="fw-bold">About</li>
+                    <li><a href="" class="text-decoration-none text-white">Our Project</a></li>
+                    <li><a href="" class="text-decoration-none text-white">Careers</a></li>
+                </ul>
+            </div>
+
+            <!-- ___col_4___ -->
+            <div class="col-md-2 mt-2">
+                <ul class="list-unstyled">
+                    <li class="fw-bold">Support</li>
+                    <li><a href="" class="text-decoration-none text-white">Contact</a></li>
+                    <li><a href="" class="text-decoration-none text-white">Support Request</a></li>
+                </ul>
+            </div>
+
+            <!-- ___col_5___ -->
+            <div class="col-md-2 list-unstyled mt-2">
+                <li class="fw-bold">Follow Us</li>
+                <ul class="list-unstyled mt-2 d-flex justify-content-center justify-content-md-start">
+                    <li><a href="" class="text-white"><i class="fa-brands fa-facebook me-2 fa-1x"></i></a></li>
+                    <li><a href="" class="text-white"><i class="fa-brands fa-whatsapp me-2 fa-1x"></i></a></li>
+                    <li><a href="" class="text-white"><i class="fa-brands fa-youtube me-2 fa-1x"></i></a></li>
+                    <li><a href="" class="text-white"><i class="fa-brands fa-instagram me-2 fa-1x"></i></a></li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+    
+    
+
+    <!-- _________________________ Scroll To Top _________________________ -->
+    <div id="scrollUp" title="Scroll To Up" class="position-fixed bottom-0 end-0 rounded text-center bg-warning me-5 mb-5 d-none">
+        <img src="img/arrow-150-32.ico" style="width:30px;height: 37px;;cursor: pointer;" class="py-2 px-1"/>
+    </div>
+
+
+
+    
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    <!-- <script src="bootstrap-5.2.0-beta1-dist/umd/popper.min.js"></script>
+    <script src="bootstrap-5.2.0-beta1-dist/js/bootstrap.min.js"></script> -->
+    <script src="Script.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        offset: 300,
+      });
+    </script>
+
+    
+  </body>
+</html>

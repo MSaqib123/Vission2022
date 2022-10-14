@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>TFS Offical</title>
+    <!-- Required meta tags -->
+    <link rel="shortcut icon" href="img/logo6.png" type="image/x-icon">
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- ___________Roboto Fonts__________ -->
+    <link href="http://fonts.cdnfonts.com/css/open-sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- ___________Sweet Alert______________ -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- ___________ Slick Slider ______________ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
+
+  </head>
+  <body onload="swalCard()" id="Home" class="position-relative">
+
+    <!-- ___________________________ Loader _________________________ -->
+    <div class="position-fixed w-100 h-100 top-0 start-0 bg-white" style="z-index: 9999;" id="loader">
+        <div class="d-flex justify-content-center align-items-center align-content-center" style="height: 100%;">
+            <img src="img/loading.gif" alt="test">
+        </div>
+    </div>
+
+
+    <!-- ______________________Navigation_Bar________________________ -->
+    <div class="navbar-sticky pb-0 pt-1">
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-dark px-5 py-0">
+                <a href="index.html" class="navbar-brand py-0 my-0">
+                    <div class="d-flex justify-content-start align-content-center h-100">
+                        <img src="img/logo6.png" alt="" style="height: 50px;width: 50px;" id="logo">
+                        <p class="fs-2 mt-1" id="logoColor">TFS</p>
+                    </div>
+                </a>
+                <button class="fa-solid fa-bars-staggered bg-transparent text-white d-lg-none border-0 fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav me-auto mt-2 mt-lg-0" id="ul">
+                        <li class="nav-item">
+                            <a class="nav-link text-white li_a home" href="index.html">Home <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white li_a  act" href="Product.html">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white li_a" href="About Us.html">About Us</a>
+                        </li>   
+                        <li class="nav-item">
+                            <a class="nav-link text-white li_a" href="Contact Us.html">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white li_a" href="feedback.html">FeedBack</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto" id="ul">
+                        <li class="nav-item d-none d-lg-none"  id="uName1">
+                            <a class="nav-link text-white li_a text-uppercase me-3 fw-bold" style="cursor: pointer;"  id="userName1"></a>
+                        </li>
+
+                        <!-- _______ Add to WishList ________ -->
+                        <li class="nav-item d-none d-lg-block">
+                            <a href="wishProductPage.html" class="nav-link text-white" >
+                                <span class="fs-4 position-relative fa-regular fa-heart" style="cursor: pointer;">
+                                    <span class="top-0 start-100 translate-middle badge px-2 pb-1 pt-0 rounded-pill bg-warning  text-black">
+                                        <small style="font-size:12px;" id="wishList" class="fw-bold">0</small>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        
+                        <!-- _______ Add to Cart ________ -->                        
+                        <li class="nav-item d-none d-lg-block">
+                            <!-- ___ DropDown ___ -->
+                            <div class="dropdown">
+                                <!-- ___ show DropDown ___ -->
+                                <a class="nav-link text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                                    <span class="mt-1 fs-5 position-relative fas fas-solid fa-shopping-cart" style="cursor: pointer;">
+                                        <span class="top-0 start-100 translate-middle badge rounded-pill text-black bg-warning">
+                                            <small style="font-size:11px;" id="totalcard" class="fw-bold">0</small>
+                                        </span>
+                                    </span>
+                                </a>
+                                
+                                <!-- ___ DropDown-Menu ___ -->
+                                <div class="dropdown-menu dropdown-menu-end p-0 shadow" style="width: 400px;">
+                                    <div class="container-fluid">
+                                        <!-- _header__ -->
+                                        <div class="row mt-3 border-bottom">
+                                            <div class="col-12border-bottom">
+                                                <h3 class="text-center">Product Card</h3>
+                                            </div>
+                                        </div>
+
+                                        <!-- __header__ -->
+                                        <div class="row py-2 border-bottom px-2">
+                                            <div class="col-6 d-flex justify-content-around">
+                                                <span>Total Price : </span>
+                                                <span id="T_price" class="text-danger fw-bold"> $0</span>
+                                            </div>
+                                            <div class="col-6 d-flex justify-content-around">
+                                                <span>TotalCard : </span>
+                                                <span id="T_Card">0</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- product -->
+                                        <div class="row dropDiv pe-3 ps-3 border">
+                                            <div class="overflow-scroll scrol-div " id="productDiv" style="max-height: 330px;min-height: 100px;">
+                                            </div> 
+                                        </div>
+
+                                        <!-- go To card -->
+                                        <div class="row mb-2 pt-3  border-top">
+                                            <div class="col-12 pb-1">
+                                                <div class="d-flex justify-content-around">
+                                                    <a href="cardDetail.html" class="btn btn-primary">GoToCard</a>
+                                                    <button class="btn btn-warning" id="clearAll">Clear All_Card</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </li>
+
+                        <li class="nav-item d-none d-lg-none"  id="dashboard1">
+                            <a class="nav-link text-white text-uppercase fw-bold me-2"  href="dashboard.html" style="cursor: pointer;">
+                                <img src="img/dashboard-58.png" width="40px" height="25px"><span class="text ms-2"></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item d-none d-lg-none"  id="logOut1">
+                            <a class="nav-link mt-1 pt-0 text-warning text-uppercase fw-bold" onclick="logOut_SingIn(2)">
+                                <img src="img/shutdown.png" style="width:32px;height: 32px;cursor: pointer;"/>
+                            </a>
+                        </li>
+                        <li class="nav-item d-none d-lg-none" id="login_Option1">
+                            <a class="nav-link mt-1 pt-0 text-warning" style="cursor: pointer;" onclick="logOut_SingIn(1)">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- __ 2nd Nav  -->
+            <div class="bg d-block d-lg-none">
+                <nav class="py-2 px-2">
+                    <div class="d-flex justify-content-between flex-wrap">
+                        <div  id="logOut2" class="d-none">
+                            <a class="nav-link text-warning li_a text-uppercase fw-bold" onclick="logOut(2)" style="cursor: pointer;">
+                                <img src="img/shutdown.png" style="width:32px;height: 32px;"/>
+                            </a>
+                        </div>
+                        <div id="dashboard2" class="d-none">
+                            <a class="nav-link text-white li_a text-uppercase fw-bold"  href="dashboard.html" style="cursor: pointer;">
+                                <img src="img/dashboard-58.png" width="40px" height="25px"><span class="text ms-2"></span>
+                            </a>
+                        </div>
+                        
+                        <!-- _______ Add to WishList ________ -->
+                        <div class="d-block">
+                            <a href="wishProductPage.html" class="nav-link text-white" >
+                                <span class="fs-4 position-relative fa-regular fa-heart" style="cursor: pointer;">
+                                    <span class="top-0 start-100 translate-middle badge px-2 pb-1 pt-0 rounded-pill bg-warning  text-black">
+                                        <small style="font-size:12px;" id="wishList1" class="fw-bold">0</small>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                        <div>
+                            <!-- <h2 class="text-primary sub-heading" style="font-size: 45px;">Product</h2> -->
+                            <span class="fs-5 position-relative mt-2 fas fas-solid text-white fa-shopping-cart" style="cursor: pointer;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvas-backdrop">
+                                <span class="top-0 start-100 translate-middle badge rounded-pill bg-warning">
+                                    <small style="font-size:11px;" id="totalCanv_card" class="fw-bold">0</small>
+                                </span>
+                            </span>
+                        </div>
+                        <div  id="login_Option2" class="d-none"  id="login_Option2">
+                            <a href="signin.html" class="nav-link mt-1 pt-0 text-warning text-uppercase fw-bold" onclick="logOut_SingIn(1)" style="cursor: pointer;">Login</a>
+                        </div>
+                        <div id="uName2" class="d-none">
+                            <a class="nav-link text-white li_a text-uppercase fw-bold" style="cursor: pointer;"  id="userName2">
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- ______________________ Theme_Changer ________________________ -->
+    <div class="position-fixed end-0 bg-white pe-3 pt-2 ps-3 pb-2 rounded-start shadow themeDiv" style="top: 140px;z-index: 99;">
+        <img src="img/themeyIcon.png" style="cursor: pointer;width: 35px; height: 35px;" class="themeToggle"/>
+    </div>
+    
+
+
+    <!-- ____________ OffCanvase On Responsive ____________ -->
+    <div class="row d-block d-lg-none">
+        <div class="col-12 d-flex justify-content-between">
+            <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                  <h3 class="offcanvas-title" id="offcanvasExampleLabel">Cart Products</h3>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+
+                <div class="offcanvas-body  border-top border-primary overflow-hidden">
+                  <div class="row">
+
+                    <!-- ___ Cart To be Render ___ -->
+                    <div class="row position-absolute overflow-scroll pb-2 scrol-div productDiv" style="height: 73%;">
+                        
+                    </div>
+
+                    <!-- ___ Bottom ___ -->
+                    <div class="row  border-top border-primary justify-content-center position-absolute bottom-0 w-100 bg-white"  style="height: 15%;">
+                        <div class="pt-2 d-flex justify-content-between">
+                            <span class="fw-bolder">Total Card : </span>
+                            <span class="text-primary" id="Canv_card">0</span>
+                        </div>
+                        <div class="pb-2 d-flex justify-content-between">
+                            <span class="fw-bolder">Total Price : </span>
+                            <span id="Canv_price" class="text-danger fw-bold"> $0</span>
+                        </div>
+                    </div>
+
+                  </div>
+                  
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="d-flex justify-content-center align-items-center h-100 py-5 my-5"  style="color: var(--text-dark);">
+                <div class="text-center border-1">
+                    <h1 class="fw-bolder">COMING SOON</h1>
+                    <P>We are Here to Provide You the Best Offer at The Mega Thrift Day for You.</P>
+                    <div class="mt-3">
+                        <div class="p-5 px-5">
+                            <div class="d-flex justify-content-around align-items-center  border-1  border border-1 py-3 px-5 flex-wrap">
+                                <div>
+                                    <span class="d-block fs-1" id="day">00</span>
+                                    <p style="margin-top: -12px;">Day</p>
+                                </div>
+                                <div class="fs-2 px-5">:</div>
+                                <div>
+                                    <span class="d-block fs-1" id="Hour">00</span>
+                                    <p style="margin-top: -12px;">Hours</p>
+                                </div>
+                                <div class="fs-2 px-5">:</div>
+                                <div>
+                                    <span class="d-block fs-1" id="Minut">00</span>
+                                    <p style="margin-top: -12px;">Minuts</p>
+                                </div>
+                                <div class="fs-2 px-5">:</div>
+                                <div>
+                                    <span class="d-block fs-1" id="Second">00</span>
+                                    <p style="margin-top: -12px;">Second</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- _______________________________________________ Footer ___________________________________________________ -->
+    <div class="text-white p-3 mt-5" id="footer">
+        <div class="mt-3">
+            <h1 class="text-center fw-bold">Want To Be a Partner with Us?</h1>
+            <p class="text-center">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam corporis fugiat nihil alias
+                . Inventore eligendi, nisi porro voluptatibus amet molestiae ex eaque ea delectus cumque blanditiis animi,
+                eum nostrum doloribus?
+                <center><Button class="btn btn-black btn-outline-light">Get Started</Button></center>
+            </p><br>
+            <hr>
+        </div>
+        <div class="row justify-content-around text-center text-md-start">
+            <!-- ___col_1___ -->
+            <div class="col-md-2 text-center">
+                <h1 class="fw-bold m-3">Thrift</h1>
+                <h5>Fashion Store</h5>
+            </div>
+
+            <!-- ___col_2___ -->
+            <div class="col-md-2 mt-2">
+                <ul class="list-unstyled">
+                    <li class="fw-bold">Busnise With Us</li>
+                    <li><a href="" class="text-decoration-none text-white">Website</a></li>
+                    <li><a href="" class="text-decoration-none text-white">Social Media</a></li>
+                    <li><a href="" class="text-decoration-none text-white">Branding</a></li>
+                </ul>
+            </div>
+
+            <!-- ___col_3___ -->
+            <div class="col-md-2 mt-2">
+                <ul class="list-unstyled">
+                    <li class="fw-bold">About</li>
+                    <li><a href="" class="text-decoration-none text-white">Our Project</a></li>
+                    <li><a href="" class="text-decoration-none text-white">Careers</a></li>
+                </ul>
+            </div>
+
+            <!-- ___col_4___ -->
+            <div class="col-md-2 mt-2">
+                <ul class="list-unstyled">
+                    <li class="fw-bold">Support</li>
+                    <li><a href="" class="text-decoration-none text-white">Contact</a></li>
+                    <li><a href="" class="text-decoration-none text-white">Support Request</a></li>
+                </ul>
+            </div>
+
+            <!-- ___col_5___ -->
+            <div class="col-md-2 list-unstyled mt-2">
+                <li class="fw-bold">Follow Us</li>
+                <ul class="mt-2 d-flex justify-content-center justify-content-md-start">
+                    <li><a href="" class="text-white"><i class="fa-brands fa-facebook me-2 fa-1x"></i></a></li>
+                    <li><a href="" class="text-white"><i class="fa-brands fa-whatsapp me-2 fa-1x"></i></a></li>
+                    <li><a href="" class="text-white"><i class="fa-brands fa-youtube me-2 fa-1x"></i></a></li>
+                    <li><a href="" class="text-white"><i class="fa-brands fa-instagram me-2 fa-1x"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- _____________________________________________ Scroll To Top __________________________________________________ -->
+    <div id="scrollUp" title="Scroll To Up" class="position-fixed bottom-0 end-0 rounded text-center bg-warning me-5 mb-5 d-none">
+        <img src="img/arrow-150-32.ico" style="width:30px;height: 37px;;cursor: pointer;" class="py-2 px-1"/>
+    </div>
+
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="bootstrap-5.2.0-beta1-dist/umd/popper.min.js"></script>
+    <script src="bootstrap-5.2.0-beta1-dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    <!-- ___________ Slick Slider ______________ -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script> 
+    <script src="Script.js"></script>
+
+    <script>
+
+       
+       
+/* ==========================================================================================
+  Timer Offer Page
+  =========================================================================================*/
+//#region 
+ //____________ 1. Selected Time ______________
+ let selectTime = new Date("oct 17, 2022 10:00:00").getTime(); //in MiliSecond
+ console.log(selectTime);
+
+ var runner = setInterval(function(){
+     //____________ 2. Current Time ______________
+     let now = new Date().getTime(); //in MiliSecond
+     console.log(now);
+     
+     //____________ 3. Different Time ______________
+     var diff = selectTime - now;
+
+     var Days = Math.floor(diff / (1000 * 60*60*24));
+     // console.log(Days)
+     var Hours = Math.floor((diff % (1000 * 60*60*24)) / (1000 * 60 * 60) );
+     // console.log(Hours)
+     var Minuts = Math.floor((diff % (1000 * 60*60)) / (1000 * 60) );
+     // console.log(Minuts)
+     var seconds = Math.floor((diff % (1000 * 60)) / (1000) );
+     // console.log(seconds)
+
+     document.getElementById("day").innerHTML = Days;
+     document.getElementById("Hour").innerHTML = Hours;
+     document.getElementById("Minut").innerHTML = Minuts;
+     document.getElementById("Second").innerHTML = seconds;
+
+ },1000)
+
+
+//#endregion
+
+ 
+
+    </script>
+
+  </body>
+</html>

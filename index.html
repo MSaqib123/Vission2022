@@ -1,0 +1,981 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>TFS Offical</title>
+    <!-- Required meta tags -->
+    <link rel="shortcut icon" href="img/logo6.png" type="image/x-icon">
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- ___________Roboto Fonts__________ -->
+    <link href="http://fonts.cdnfonts.com/css/open-sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- ___________Sweet Alert______________ -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- ___________ Slick Slider ______________ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
+
+  </head>
+  <body onload="swalCard()" id="Home" class="position-relative">
+
+    <!-- ___________________________ Loader _________________________ -->
+    <div class="position-fixed w-100 h-100 top-0 start-0 bg-white" style="z-index: 9999;" id="loader">
+        <div class="d-flex justify-content-center align-items-center align-content-center" style="height: 100%;">
+            <img src="img/loading.gif" alt="test">
+        </div>
+    </div>
+
+
+    <!-- ______________________Navigation_Bar________________________ -->
+    <div class="navbar-sticky pb-0 pt-1">
+        <div class="py-0">
+            <nav class="navbar navbar-expand-lg navbar-dark px-5 py-0">
+                <a href="index.html" class="navbar-brand py-0 my-0">
+                    <div class="d-flex justify-content-start align-content-center h-100">
+                        <img src="img/logo6.png" alt="" style="height: 50px;width: 50px;" id="logo">
+                        <p class="fs-2 mt-1" id="logoColor">TFS</p>
+                    </div>
+                </a>
+                <button class="fa-solid fa-bars-staggered bg-transparent text-white d-lg-none border-0 fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav me-auto mt-2 mt-lg-0" id="ul">
+                        <li class="nav-item">
+                            <a class="nav-link text-white li_a home act" href="index.html">Home <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white li_a " href="Product.html">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white li_a" href="About Us.html">About Us</a>
+                        </li>   
+                        <li class="nav-item">
+                            <a class="nav-link text-white li_a" href="Contact Us.html">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white li_a" href="feedback.html">FeedBack</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto" id="ul">
+                        <li class="nav-item d-none d-lg-none"  id="uName1">
+                            <a class="nav-link text-white li_a text-uppercase me-3 fw-bold" style="cursor: pointer;"  id="userName1"></a>
+                        </li>
+
+                        <!-- _______ Add to WishList ________ -->
+                        <li class="nav-item d-none d-lg-block">
+                            <a href="wishProductPage.html" class="nav-link text-white" >
+                                <span class="fs-4 position-relative fa-regular fa-heart" style="cursor: pointer;">
+                                    <span class="top-0 start-100 translate-middle badge px-2 pb-1 pt-0 rounded-pill bg-warning  text-black">
+                                        <small style="font-size:12px;" id="wishList" class="fw-bold">0</small>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        
+                        <!-- _______ Add to Cart ________ -->                        
+                        <li class="nav-item d-none d-lg-block">
+                            <!-- ___ DropDown ___ -->
+                            <div class="dropdown">
+                                <!-- ___ show DropDown ___ -->
+                                <a class="nav-link text-white" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                                    <span class="mt-1 fs-5 position-relative fas fas-solid fa-shopping-cart" style="cursor: pointer;">
+                                        <span class="top-0 start-100 translate-middle badge rounded-pill text-black bg-warning">
+                                            <small style="font-size:11px;" id="totalcard" class="fw-bold">0</small>
+                                        </span>
+                                    </span>
+                                </a>
+                                
+                                <!-- ___ DropDown-Menu ___ -->
+                                <div class="dropdown-menu dropdown-menu-end p-0 shadow" style="width: 400px;">
+                                    <div class="container-fluid">
+                                        <!-- _header__ -->
+                                        <div class="row mt-3 border-bottom">
+                                            <div class="col-12border-bottom">
+                                                <h3 class="text-center">Product Card</h3>
+                                            </div>
+                                        </div>
+
+                                        <!-- __header__ -->
+                                        <div class="row py-2 border-bottom px-2">
+                                            <div class="col-6 d-flex justify-content-around">
+                                                <span>Total Price : </span>
+                                                <span id="T_price" class="text-danger fw-bold"> $0</span>
+                                            </div>
+                                            <div class="col-6 d-flex justify-content-around">
+                                                <span>TotalCard : </span>
+                                                <span id="T_Card">0</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- product -->
+                                        <div class="row dropDiv pe-3 ps-3 border">
+                                            <div class="overflow-scroll scrol-div " id="productDiv" style="max-height: 330px;min-height: 100px;">
+                                            </div> 
+                                        </div>
+
+                                        <!-- go To card -->
+                                        <div class="row mb-2 pt-3  border-top">
+                                            <div class="col-12 pb-1">
+                                                <div class="d-flex justify-content-around">
+                                                    <a href="cardDetail.html" class="btn btn-primary">GoToCard</a>
+                                                    <button class="btn btn-warning" id="clearAll">Clear All_Card</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </li>
+
+                        <li class="nav-item d-none d-lg-none"  id="dashboard1">
+                            <a class="nav-link text-white text-uppercase fw-bold me-2"  href="dashboard.html" style="cursor: pointer;">
+                                <img src="img/dashboard-58.png" width="40px" height="25px"><span class="text ms-2"></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item d-none d-lg-none"  id="logOut1">
+                            <a class="nav-link mt-1 pt-0 text-warning text-uppercase fw-bold" onclick="logOut_SingIn(2)">
+                                <img src="img/shutdown.png" style="width:32px;height: 32px;cursor: pointer;"/>
+                            </a>
+                        </li>
+                        <li class="nav-item d-none d-lg-none" id="login_Option1">
+                            <a class="nav-link mt-1 pt-0 text-warning" style="cursor: pointer;" onclick="logOut_SingIn(1)">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- __ 2nd Nav  -->
+            <div class="bg d-block d-lg-none">
+                <nav class="py-2 px-2">
+                    <div class="d-flex justify-content-between flex-wrap">
+                        <div  id="logOut2" class="d-none">
+                            <a class="nav-link text-warning li_a text-uppercase fw-bold" onclick="logOut(2)" style="cursor: pointer;">
+                                <img src="img/shutdown.png" style="width:32px;height: 32px;"/>
+                            </a>
+                        </div>
+                        <div id="dashboard2" class="d-none">
+                            <a class="nav-link text-white li_a text-uppercase fw-bold"  href="dashboard.html" style="cursor: pointer;">
+                                <img src="img/dashboard-58.png" width="40px" height="25px"><span class="text ms-2"></span>
+                            </a>
+                        </div>
+                        
+                        <!-- _______ Add to WishList ________ -->
+                        <div class="d-block">
+                            <a href="wishProductPage.html" class="nav-link text-white" >
+                                <span class="fs-4 position-relative fa-regular fa-heart" style="cursor: pointer;">
+                                    <span class="top-0 start-100 translate-middle badge px-2 pb-1 pt-0 rounded-pill bg-warning  text-black">
+                                        <small style="font-size:12px;" id="wishList1" class="fw-bold">0</small>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                        <div>
+                            <!-- <h2 class="text-primary sub-heading" style="font-size: 45px;">Product</h2> -->
+                            <span class="fs-5 position-relative mt-2 fas fas-solid text-white fa-shopping-cart" style="cursor: pointer;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvas-backdrop">
+                                <span class="top-0 start-100 translate-middle badge rounded-pill bg-warning">
+                                    <small style="font-size:11px;" id="totalCanv_card" class="fw-bold">0</small>
+                                </span>
+                            </span>
+                        </div>
+                        <div  id="login_Option2" class="d-none"  id="login_Option2">
+                            <a href="signin.html" class="nav-link mt-1 pt-0 text-warning text-uppercase fw-bold" onclick="logOut_SingIn(1)" style="cursor: pointer;">Login</a>
+                        </div>
+                        <div id="uName2" class="d-none">
+                            <a class="nav-link text-white li_a text-uppercase fw-bold" style="cursor: pointer;"  id="userName2">
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- ______________________ Theme_Changer ________________________ -->
+    <div class="position-fixed end-0 bg-white pe-3 pt-2 ps-3 pb-2 rounded-start shadow themeDiv" style="top: 140px;z-index: 99;">
+        <img src="img/themeyIcon.png" style="cursor: pointer;width: 35px; height: 35px;" class="themeToggle"/>
+    </div>
+    
+
+
+    <!-- ____________ OffCanvase On Responsive ____________ -->
+    <div class="row d-block d-lg-none">
+        <div class="col-12 d-flex justify-content-between">
+            <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                  <h3 class="offcanvas-title" id="offcanvasExampleLabel">Cart Products</h3>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+
+                <div class="offcanvas-body  border-top border-primary overflow-hidden">
+                  <div class="row">
+
+                    <!-- ___ Cart To be Render ___ -->
+                    <div class="row position-absolute overflow-scroll pb-2 scrol-div productDiv" style="height: 73%;">
+                        
+                    </div>
+
+                    <!-- ___ Bottom ___ -->
+                    <div class="row  border-top border-primary justify-content-center position-absolute bottom-0 w-100 bg-white"  style="height: 15%;">
+                        <div class="pt-2 d-flex justify-content-between">
+                            <span class="fw-bolder">Total Card : </span>
+                            <span class="text-primary" id="Canv_card">0</span>
+                        </div>
+                        <div class="pb-2 d-flex justify-content-between">
+                            <span class="fw-bolder">Total Price : </span>
+                            <span id="Canv_price" class="text-danger fw-bold"> $0</span>
+                        </div>
+                    </div>
+
+                  </div>
+                  
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ____________ Offer ____________ -->
+    <div class="modal"  id="myModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-2 pb-3">
+                <div class="d-flex justify-content-end p-2 pt-3">
+                    <span type="button" class="float-end btn-close" data-bs-dismiss="modal"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="d-flex justify-content-center align-items-center h-100" >
+                            <img src="img/gift.png" alt="" width="100%" height="230px" class="mb-2 ms-2 mt">
+                        </div>
+                    </div>
+                    
+                    <div class="col-5 text-center ms-2 pb-5">
+                        <div class="d-flex justify-content-center align-items-center h-100" >
+                            <div class="h-100">
+                                <h4>Special Offer</h4>
+                                <div class="d-flex justify-content-center align-content-center fw-bold">
+                                    <h1 class="text-danger fw-bolder">80% <span class="text-dark">OFF</span></h1>
+                                </div>
+                                <p>
+                                    We Are Providing Special Offer on Thrift Day.
+                                </p>
+                                <a class="btn btn-danger" href="offer.html">Get The Deal</a>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--_______________________________________________ Banner _____________________________________________________ -->
+    <div class="container-fluid" style="background-color: #f2f2f2;">
+        <div class="container">
+            <!-- _________________ Carosual ________________ -->
+            <div class="row align-items-center">
+                <!-- _______________Slider__________________ -->
+                <div class="col-lg-7 text-center">
+                    <div id="carouselExampleCaptions" class="carousel slide carousel-fade text-center" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active bg-primary rounded-circle" style="width:15px;height: 15px ;" aria-current="true" aria-label="Slide 1"></button>
+                          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" class=" rounded-circle bg-primary" style="width:15px;height: 15px ;"></button>
+                          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3" class=" rounded-circle bg-primary"  style="width:15px;height: 15px ;"></button>
+                        </div>
+                        <div class="carousel-inner">
+                          <div class="carousel-item active ">
+                            <img src="img/shirt2.jpg" class="d-block img-fluid offset-1"  style="max-height:500px;"/>
+                            
+                          </div>
+                          <div class="carousel-item">
+                            <img src="img/polo-shirt1.jpg" class="d-block img-fluid offset-1"  style="max-height:500px;" alt="..."/>
+                            
+                          </div>
+                          <div class="carousel-item">
+                            <img src="img/hoodie.jpg" class="d-block img-fluid offset-1"  style="max-height:500px;" alt="..."/>
+                          </div>
+                        </div>
+
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                            <span class="text-primary" aria-hidden="true"><i class="fa-solid fa-angles-left fs-2"></i></span>
+                          <span class="visually-hidden ">Previous</span>
+                        </button>
+
+                        <button class="carousel-control-next " type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                          <span class="text-primary" aria-hidden="true"><i class="fa-solid fa-angles-right fs-2"></i></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ______Left Side Content_________ -->
+                <div class="col-lg-5 text-center text-lg-start my-5">
+                    <h2>
+                        <span style="font-size: 50px;" class="text-primary border-5 pb-2 border-bottom border-primary" >
+                            Thrift <span id="typeText"></span>
+                        </span>
+                        <h2 class="mt-4">On The Lack</h2>
+                    </h2>
+                    <p>
+                        Welcome In Thrift Fashion Store To Buy our Products. We are providing Best offers and quality of our Products.
+                        We Hop our Services will help you to Select Your Desired Product...
+                    </p>
+                    <a href="#" class="btn btn-lg btn-outline-primary main-btn mt-4 rounded-0">View Menu</a>
+                    <a href="Product.html" class="btn btn-lg btn-outline-warning main-btn mt-4 ms-2 rounded-0">View Products</a>
+                </div>
+            </div>
+
+            <!-- _________________ Banner _____________ -->
+            <div class="row top-menu py-5">
+                <div class="col-lg-3 col-sm-6 my-4">
+                    <div class="card">
+                        <img class="img-fluid" src="img/Banner2.jpg"/>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 my-4">
+                    <div class="card">
+                        <img class="img-fluid" src="img/Banner1.jpg"/>
+                    </div>  
+                </div>
+                <div class="col-lg-3 col-sm-6 my-4">
+                    <div class="card">
+                        <img class="img-fluid" src="img/Banner5.jpg"/>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 my-4">
+                    <div class="card">
+                        <img class="img-fluid" src="img/Banner4.jpg"/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- _________________ Category _____________ -->
+            <h1>Category</h1>
+            <div class="row top-menu py-5">
+                <div class="col-12 col-sm-5 col-lg-4 mb-5">
+                    <div class="card h-100 p-5 border-0 d-none d-lg-block iOnhover" data-category="hoodie">
+                        <div class="position-absolute imgCart1">
+                            <img src="img/p3_hoodies.jpg" alt="">
+                        </div>
+                        <div  class="position-absolute imgCart2">
+                            <img src="img/p2_hoodis.jpg" alt="" class="ivh">
+                        </div>
+                    </div>
+                    <div class="card h-50 p-5 border-0 imgCart1 d-none d-md-block d-lg-none  iOnhover" data-category="hoodie">
+                        <div class="position-absolute imgCart1">
+                            <img src="img/p3_hoodies.jpg" alt="">
+                        </div>
+                        <div  class="position-absolute imgCart2">
+                            <img src="img/p2_hoodis.jpg" alt="" class="ivh">
+                        </div>
+                    </div>
+                    <div class="card h-25 p-2 border-0 imgCart1 d-none d-sm-block d-md-none  iOnhover" data-category="hoodie">
+                        <div class="position-absolute imgCart1">
+                            <img src="img/p3_hoodies.jpg" alt="">
+                        </div>
+                        <div  class="position-absolute imgCart2">
+                            <img src="img/p2_hoodis.jpg" alt="" class="ivh">
+                        </div>
+                    </div>
+                    <div class="card h-100 p-5 border-0 imgCart1 d-block d-sm-none  iOnhover" data-category="hoodie" style="height: 500px !important;">
+                        <div class="position-absolute imgCart1">
+                            <img src="img/p3_hoodies.jpg" alt="">
+                        </div>
+                        <div  class="position-absolute imgCart2">
+                            <img src="img/p2_hoodis.jpg" alt="" class="ivh">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-7 col-lg-8">
+                    <div class="row d-none d-sm-flex">
+
+                        <div class="col-12 col-md-6 col-lg-4 mb-4" style="height: 250px;">
+                            <div class="card p-3 border-0 iOnhover h-100 " data-category="bag">
+                                <div class="position-absolute imgCart1 w-75  ms-3">
+                                    <img src="img/img1.jpg" alt="" style="height: 200px;">
+                                </div>
+                                <div class="position-absolute imgCart2 w-100 pe-3">
+                                    <img src="img/p1-bag.webp" alt="" style="height: 200px;" class="ivh">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4" style="height: 250px;">
+                            <div class="card p-3 border-0 iOnhover h-100 " data-category="jacket" >
+                                <div class="position-absolute imgCart1 w-75  ms-3">
+                                    <img src="img/img3.jpg" alt="" style="height: 200px;" class="ivh">
+                                </div>
+                                <div class="position-absolute imgCart2 w-100 pe-3">
+                                    <img src="img/p2_Jackets.jpg" alt="" style="height: 200px;" class="ivh">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4" style="height: 250px;">
+                            <div class="card p-3 border-0 iOnhover h-100" data-category="jewelery">
+                                <div class="position-absolute  w-75  ms-3 imgCart1">
+                                    <img src="img/img7.jpg" alt="" style="height: 200px !important;" class="ivh">
+                                </div>
+                                <div class="position-absolute imgCart2 w-100 pe-3">
+                                    <img src="img/img8.jpg" alt="" style="height: 200px;" class="ivh">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4" style="height: 250px;">
+                            <div class="card p-3 border-0 iOnhover h-100" data-category="women">
+                                <div class="position-absolute  w-75  ms-3 imgCart1">
+                                    <img src="img/img19.jpg" alt="" style="height: 200px;" class="ivh">
+                                </div>
+                                <div class="position-absolute imgCart2 w-100 pe-3">
+                                    <img src="img/p4_woman_hoodies.jpg" alt="" style="height: 200px;" class="ivh">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-md-6 col-lg-4 mb-4" style="height: 250px;">
+                            <div class="card p-3 border-0 iOnhover h-100" data-category="shirt">
+                                <div class="position-absolute  w-75  ms-3 imgCart1">
+                                    <img src="img/p4_sleevless_shirt.jpg" alt="" style="height: 200px;" class="ivh">
+                                </div>
+                                <div class="position-absolute imgCart2 w-100 pe-3">
+                                    <img src="img/p1_sleeveless-shirt.webp" alt="" style="height: 200px;" class="ivh">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-md-6 col-lg-4 mb-4" style="height: 250px;">
+                            <div class="card p-3 border-0 iOnhover h-100" data-category="waistcoat">
+                                <div class="position-absolute  w-75  ms-3 imgCart1">
+                                    <img src="img/p2_Waistcoat.jpg" alt="" style="height: 200px;" class="ivh">
+                                </div>
+                                <div class="position-absolute imgCart2 w-100 pe-3">
+                                    <img src="img/p1_Waistcoat.jpg" alt="" style="height: 200px;" class="ivh">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="row d-block d-sm-none">
+                        <div class="col-12 col-md-6 col-lg-4 mb-4" style="height: 400px;">
+                            <div class="card p-3 border-0 iOnhover h-100 " data-category="bag">
+                                <div class="position-absolute imgCart1 w-75  ms-3">
+                                    <img src="img/img1.jpg" alt="" style="height: 400px;">
+                                </div>
+                                <div class="position-absolute imgCart2 w-100 pe-3">
+                                    <img src="img/p1-bag.webp" alt="" style="height: 400px;" class="ivh">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4" style="height: 400px;">
+                            <div class="card p-3 border-0 iOnhover h-100 " data-category="jacket" >
+                                <div class="position-absolute imgCart1 w-75  ms-3">
+                                    <img src="img/img3.jpg" alt="" style="height: 400px;" class="ivh">
+                                </div>
+                                <div class="position-absolute imgCart2 w-100 pe-3">
+                                    <img src="img/p2_Jackets.jpg" alt="" style="height: 400px;" class="ivh">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4" style="height: 400px;">
+                            <div class="card p-3 border-0 iOnhover h-100" data-category="jawelary">
+                                <div class="position-absolute  w-75  ms-3 imgCart1">
+                                    <img src="img/img7.jpg" alt="" style="height: 200px !important;" class="ivh">
+                                </div>
+                                <div class="position-absolute imgCart2 w-100 pe-3">
+                                    <img src="img/img8.jpg" alt="" style="height: 400px;" class="ivh">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4" style="height: 400px;">
+                            <div class="card p-3 border-0 iOnhover h-100" data-category="woman">
+                                <div class="position-absolute  w-75  ms-3 imgCart1">
+                                    <img src="img/img19.jpg" alt="" style="height: 400px;" class="ivh">
+                                </div>
+                                <div class="position-absolute imgCart2 w-100 pe-3">
+                                    <img src="img/p4_woman_hoodies.jpg" alt="" style="height: 400px;" class="ivh">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-md-6 col-lg-4 mb-4" style="height: 400px;">
+                            <div class="card p-3 border-0 iOnhover h-100" data-category="shirt">
+                                <div class="position-absolute  w-75  ms-3 imgCart1">
+                                    <img src="img/p4_sleevless_shirt.jpg" alt="" style="height: 400px;" class="ivh">
+                                </div>
+                                <div class="position-absolute imgCart2 w-100 pe-3">
+                                    <img src="img/p1_sleeveless-shirt.webp" alt="" style="height: 400px;" class="ivh">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-md-6 col-lg-4 mb-4" style="height: 400px;">
+                            <div class="card p-3 border-0 iOnhover h-100" data-category="waistcoat">
+                                <div class="position-absolute  w-75  ms-3 imgCart1">
+                                    <img src="img/p2_Waistcoat.jpg" alt="" style="height: 400px;" class="ivh">
+                                </div>
+                                <div class="position-absolute imgCart2 w-100 pe-3">
+                                    <img src="img/p1_Waistcoat.jpg" alt="" style="height: 400px;" class="ivh">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>    
+        <br><br><br><br> 
+    </div>
+    
+    <!-- _______________________________________________ Paralax _____________________________________________________ -->
+    <div class="parallax">
+    </div>
+
+    <!-- _______________________________________________ Offers Prodcut Slider _____________________________________________________ -->
+    <div id="offers" class="offers_wrapper my-2 py-2">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7 col-md-8">
+                    <div class="section-heading text-center">
+                        <h2 class="text-primary sub-heading" style="font-size: 45px;">Best Offers</h2>
+                        <p>There are many varites of Passages of Shirts , half cuts , jur1sees available <br class="d-none d-md-block"> but the
+                            Majority have suffered alteration.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider">
+                <div class="mx-3">
+                    <div class="card border-0 rounded-0" style="background-image:url(img/polo-shirt.jpg) ;">
+                        <div class="d-flex bg-opacity-25 justify-content-center align-items-end" style="height: 260px"> 
+                            <div class="text-center desc pb-2 bg-dark w-100 pt-3 bg-opacity-75" > 
+                                <h6 class="text-white fw-bold"><span class="text-warning">DOUBLE</span> Offer</h6>
+                                <h6 class="text-white pb-0">$8.50 <small class="text-danger fst-italic opacity-75"><del>$10.50</del></small></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-3">
+                    <div class="card border-0 rounded-0" style="background-image:url(img/DSC_7971_1024x1024.webp) ;">
+                        <div class="d-flex bg-opacity-25 justify-content-center align-items-end" style="height: 260px"> 
+                            <div class="text-center desc pb-2 bg-dark w-100 pt-3 bg-opacity-75" > 
+                                <h6 class="text-white fw-bold"><span class="text-warning">DOUBLE</span> Offer</h6>
+                                <h6 class="text-white pb-0">$8.50 <small class="text-danger fst-italic opacity-75"><del>$10.50</del></small></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-3">
+                    <div class="card border-0 rounded-0" style="background-image:url(img/long\ Slave.webp) ;">
+                        <div class="d-flex bg-opacity-25 justify-content-center align-items-end" style="height: 260px"> 
+                            <div class="text-center desc pb-2 bg-dark w-100 pt-3 bg-opacity-75" > 
+                                <h6 class="text-white fw-bold"><span class="text-warning">DOUBLE</span> Offer</h6>
+                                <h6 class="text-white pb-0">$8.50 <small class="text-danger fst-italic opacity-75"><del>$10.50</del></small></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-3">
+                    <div class="card border-0 rounded-0" style="background-image:url(img/polo-shirt.jpg) ;">
+                        <div class="d-flex bg-opacity-25 justify-content-center align-items-end" style="height: 260px"> 
+                            <div class="text-center desc pb-2 bg-dark w-100 pt-3 bg-opacity-75" > 
+                                <h6 class="text-white fw-bold"><span class="text-warning">DOUBLE</span> Offer</h6>
+                                <h6 class="text-white pb-0">$8.50 <small class="text-danger fst-italic opacity-75"><del>$10.50</del></small></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-3">
+                    <div class="card border-0 rounded-0" style="background-image:url(img/polo-shirt.jpg) ;">
+                        <div class="d-flex bg-opacity-25 justify-content-center align-items-end" style="height: 260px"> 
+                            <div class="text-center desc pb-2 bg-dark w-100 pt-3 bg-opacity-75" > 
+                                <h6 class="text-white fw-bold"><span class="text-warning">DOUBLE</span> Offer</h6>
+                                <h6 class="text-white pb-0">$8.50 <small class="text-danger fst-italic opacity-75"><del>$10.50</del></small></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-3">
+                    <div class="card border-0 rounded-0" style="background-image:url(img/polo-shirt.jpg) ;">
+                        <div class="d-flex bg-opacity-25 justify-content-center align-items-end" style="height: 260px"> 
+                            <div class="text-center desc pb-2 bg-dark w-100 pt-3 bg-opacity-75" > 
+                                <small class="text-white fw-bold"><span class="text-warning">DOUBLE</span> Offer</small>
+                                <h6 class="text-white pb-0">$8.50 <small class="text-danger fst-italic opacity-75"><del>$10.50</del></small></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+            
+            <!-- <div class="custome_Slick_Slider">
+                <div class="d-flex">
+                    <div class="">
+                        <div class="card border-0 rounded-0 shadow" style="background-image:url(img/polo-shirt.jpg) ;">
+                        <div class="d-flex justify-content-lg-end  align-items-lg-cente align-items-md-center justify-content-md-center justify-content-sm-end align-items-sm-center  justify-content-end align-items-center  bg-opacity-50 w-100 h-100">
+                                <div class="text-center me-5 pe-5 me-sm-5 pe-sm-5 pe-md-0 me-md-0 pe-lg-5 me-lg-5"> 
+                                    <h4 class="text-white">Double Offer</h4>
+                                    <h5 class="text-white">$8.50 <del class="fst-italic opacity-75">$10.50</del></h5>
+                                    <a href="#" class="btn btn-outline-primary">Add To Cart</a>
+                                </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="card border-0 rounded-0 shadow" style="background-image:url(img/long\ Slave.webp) ;">
+                        <div class="d-flex justify-content-lg-end  align-items-lg-cente align-items-md-center justify-content-md-center justify-content-sm-end align-items-sm-center  justify-content-end align-items-center bg-black bg-opacity-50 w-100 h-100">
+                                <div class="text-center me-5 pe-5 me-sm-5 pe-sm-5 pe-md-0 me-md-0 pe-lg-5 me-lg-5"> 
+                                    <h4 class="text-white">Double Offer</h4>
+                                    <h5 class="text-white">$12.50 <del class="fst-italic opacity-75">$15.10</del></h5>
+                                    <a href="#" class="btn  btn-outline-primary">Add To Cart</a>
+                                </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="card border-0 rounded-0 shadow" style="background-image:url(img/DSC_7971_1024x1024.webp)">
+                        <div class="d-flex justify-content-lg-end  align-items-lg-cente align-items-md-center justify-content-md-center justify-content-sm-end align-items-sm-center  justify-content-end align-items-center bg-black bg-opacity-50 w-100 h-100">
+                                <div class="text-center me-5 pe-5 me-sm-5 pe-sm-5 pe-md-0 me-md-0 pe-lg-5 me-lg-5"> 
+                                    <h4 class="text-white">Maga Offer</h4>
+                                    <h5 class="text-white">$9.50 <del class="fst-italic opacity-75">$12.50</del></h5>
+                                    <a href="#" class="btn btn-outline-primary">Add To Cart</a>
+                                </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="card border-0 rounded-0 shadow" style="background-image:url(img/longs-leeve.webp)">
+                        <div class="d-flex justify-content-lg-end  align-items-lg-cente align-items-md-center justify-content-md-center justify-content-sm-end align-items-sm-center  justify-content-end align-items-center bg-black bg-opacity-50 w-100 h-100">
+                                <div class="text-center me-5 pe-5 me-sm-5 pe-sm-5 pe-md-0 me-md-0 pe-lg-5 me-lg-5"> 
+                                    <h3 class="text-white">Maga Offer</h3>
+                                    <h5 class="text-white">$4.50 <del class="fst-italic opacity-75">$5.50</del></h5>
+                                    <a href="#" class="btn btn-outline-primary">Add To Cart</a>
+                                </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        
+    </div>   
+
+    <!-- _______________________________________________ Papulare Products _____________________________________________________ -->
+    <div id="Papular" class="offers_wrapper my-2 py-2">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7 col-md-8">
+                    <div class="section-heading text-center">
+                        <h2 class="text-primary sub-heading" style="font-size: 45px;">Most Papular</h2>
+                        <p>There are many varites of Passages of Shirts , half cuts , jursees available <br class="d-none d-md-block"> but the Majority have suffered alteration.</p>
+                    </div>
+                </div>
+            </div>
+
+            <section class="slider" id="sliderPapular">
+            </section>
+        </div>
+    </div>   
+
+    <!-- _______________________________________________ Reviews _____________________________________________________ -->
+    <div class="container-fluid mt-2 mb-2">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-md-8">
+                <div class="section-heading text-center">
+                    <h2 class="text-primary sub-heading" style="font-size: 45px;">Most Reviews</h2>
+                    <p>We Have call many Products with greate Reviews<br class="d-none d-md-block"> Users Are Very Satisfied with us. We Have most Reviews</p>
+                </div>
+            </div>
+        </div>
+        <div id="reviews" class="container-fluid review_wrapper pb-5 pt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-7 col-sm-6">
+                        <div class="card rounded-0 bg-white p-2">
+                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                            
+                                <div class="carousel-inner">
+                                <div class="carousel-item active text-center pt-3">
+                                    <img src="img/product6.jpg"/>
+                                    <div class="carousel-caption">
+                                        <h3  class="text-dark">Dimond</h3>
+                                        <p  class="text-dark">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. N
+                                            reiciendis! Et voluptas culpa ducimus possimus dolorum esse. Laudantium repellat adipisci in!
+                                        </p>
+                                        <a href="#" class="btn btn-outline-primary">Read More</a>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item text-center pt-3">
+                                    <img src="img/product7.jpg"/>
+                                    <div class="carousel-caption">
+                                        <h3  class="text-dark">Hoodies</h3>
+                                        <p class="text-dark">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi non m
+                                            reiciendis! Et voluptas culpa ducimus possimus dolorum esse. Laudantium repellat adipisci in!
+                                        </p>
+                                        <a href="#" class="btn btn-outline-primary">Read More</a>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item text-center pt-3">
+                                    <img src="img/product4.jpg"/>
+                                    <div class="carousel-caption">
+                                        <h3  class="text-dark">Hodies & Shirt</h3>
+                                        <p  class="text-dark">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi non dolore ipsa quia incidunt fugit qui cum harum
+                                            reiciendis! Et voluptas culpa ducimus possimus dolorum esse. Laudantium repellat adipisci in!
+                                        </p>
+                                        <a href="#" class="btn btn-outline-primary">Read More</a>
+                                    </div>
+                                </div>
+                                </div>
+
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                                </button>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-7 col-md-5 col-sm-6 d-flex align-items-center align-content-center bg-primary bg-opacity-50">
+                        <div class="text-center py-5">
+                            <h1 class="text-white">Our Reviews</h1>
+                            <p class="text-white fw-bold ">
+                                There are many varites of Passages of Shirts , half cuts , jursees available <br class="d-none d-md-block"> but the Majority have suffered alteration.
+                                There are many varites of Passages of Shirts , half cuts , jursees available <br class="d-none d-md-block"> but the Majority have suffered alteration.
+                            </p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div> 
+    </div>
+
+    <!-- _______________________________________________ Features ___________________________________________________-->
+    <!-- shiping -->
+    <div class="container mb-5 mt-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-md-8">
+                <div class="section-heading text-center">
+                    <h2 class="text-primary sub-heading" style="font-size: 45px;">Our Featurs</h2>
+                    <p>Our Feature are Very highy Level <br class="d-none d-md-block"> We Are providing our Services over all the Country of Pakistan.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row feature_wrapper">
+            <div class="col-6 col-lg-3">
+                <div class="card border-0 feature-box bg-transparent border-5 border-info py-5">
+                    <div class="text-center">
+                        <!-- __ icon Border __ -->
+                        <div class="feature-icon-border  bg-transparent rounded-circle d-inline-block p-4">
+                            <!-- icon -->
+                            <div class="feature-icon p-3 rounded-circle">
+                                <img src="img/feature_1.png" width="60px" height="60px"/>
+                            </div>
+                        </div>
+                        <!-- __ icon Text __ -->
+                        <div class="feature-text text-info">
+                            <h3 class=" pt-5">24/07 Support</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="card border-0 feature-box bg-transparent border-5 border-info py-5">
+                    <div class="text-center">
+                        <!-- __ icon Border __ -->
+                        <div class="feature-icon-border  bg-transparent rounded-circle d-inline-block p-4">
+                            <!-- icon -->
+                            <div class="feature-icon p-3 rounded-circle">
+                                <img src="img/feature_2.png" width="60px" height="60px"/>
+                            </div>
+                        </div>
+                        <!-- __ icon Text __ -->
+                        <div class="feature-text text-info">
+                            <h3 class=" pt-5">Free Shipping</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="card border-0 feature-box bg-transparent border-5 border-info py-5">
+                    <div class="text-center">
+                        <!-- __ icon Border __ -->
+                        <div class="feature-icon-border  bg-transparent rounded-circle d-inline-block p-4">
+                            <!-- icon -->
+                            <div class="feature-icon p-3 rounded-circle">
+                                <img src="img/feature_3.png" width="60px" height="60px"/>
+                            </div>
+                        </div>
+                        <!-- __ icon Text __ -->
+                        <div class="feature-text text-info">
+                            <h3 class=" pt-5">Whole sale</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="card border-0 feature-box bg-transparent border-5 border-info py-5">
+                    <div class="text-center">
+                        <!-- __ icon Border __ -->
+                        <div class="feature-icon-border  bg-transparent rounded-circle d-inline-block p-4">
+                            <!-- icon -->
+                            <div class="feature-icon p-3 rounded-circle">
+                                <img src="img/feature_4.png" width="60px" height="60px"/>
+                            </div>
+                        </div>
+                        <!-- __ icon Text __ -->
+                        <div class="feature-text text-info">
+                            <h3 class=" pt-5">Best Quality</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <br>
+    
+    <!-- _______________________________________________ Footer ___________________________________________________ -->
+    <div class="text-white p-3 mt-5" id="footer">
+        <div class="mt-3">
+            <h1 class="text-center fw-bold">Want To Be a Partner with Us?</h1>
+            <p class="text-center">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam corporis fugiat nihil alias
+                . Inventore eligendi, nisi porro voluptatibus amet molestiae ex eaque ea delectus cumque blanditiis animi,
+                eum nostrum doloribus?
+                <center><Button class="btn btn-black btn-outline-light">Get Started</Button></center>
+            </p><br>
+            <hr>
+        </div>
+        <div class="row justify-content-around text-center text-md-start">
+            <!-- ___col_1___ -->
+            <div class="col-md-2 text-center">
+                <h1 class="fw-bold m-3">Thrift</h1>
+                <h5>Fashion Store</h5>
+            </div>
+
+            <!-- ___col_2___ -->
+            <div class="col-md-2 mt-2">
+                <ul class="list-unstyled">
+                    <li class="fw-bold">Busnise With Us</li>
+                    <li><a href="" class="text-decoration-none text-white">Website</a></li>
+                    <li><a href="" class="text-decoration-none text-white">Social Media</a></li>
+                    <li><a href="" class="text-decoration-none text-white">Branding</a></li>
+                </ul>
+            </div>
+
+            <!-- ___col_3___ -->
+            <div class="col-md-2 mt-2">
+                <ul class="list-unstyled">
+                    <li class="fw-bold">About</li>
+                    <li><a href="" class="text-decoration-none text-white">Our Project</a></li>
+                    <li><a href="" class="text-decoration-none text-white">Careers</a></li>
+                </ul>
+            </div>
+
+            <!-- ___col_4___ -->
+            <div class="col-md-2 mt-2">
+                <ul class="list-unstyled">
+                    <li class="fw-bold">Support</li>
+                    <li><a href="" class="text-decoration-none text-white">Contact</a></li>
+                    <li><a href="" class="text-decoration-none text-white">Support Request</a></li>
+                </ul>
+            </div>
+
+            <!-- ___col_5___ -->
+            <div class="col-md-2 list-unstyled mt-2">
+                <li class="fw-bold">Follow Us</li>
+                <ul class="mt-2 d-flex justify-content-center justify-content-md-start">
+                    <li><a href="" class="text-white"><i class="fa-brands fa-facebook me-2 fa-1x"></i></a></li>
+                    <li><a href="" class="text-white"><i class="fa-brands fa-whatsapp me-2 fa-1x"></i></a></li>
+                    <li><a href="" class="text-white"><i class="fa-brands fa-youtube me-2 fa-1x"></i></a></li>
+                    <li><a href="" class="text-white"><i class="fa-brands fa-instagram me-2 fa-1x"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- _____________________________________________ Scroll To Top __________________________________________________ -->
+    <div id="scrollUp" title="Scroll To Up" class="position-fixed bottom-0 end-0 rounded text-center bg-warning me-5 mb-5 d-none">
+        <img src="img/arrow-150-32.ico" style="width:30px;height: 37px;;cursor: pointer;" class="py-2 px-1"/>
+    </div>
+
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="bootstrap-5.2.0-beta1-dist/umd/popper.min.js"></script>
+    <script src="bootstrap-5.2.0-beta1-dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    <!-- ___________ Slick Slider ______________ -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script> 
+    <script src="Script.js"></script>
+
+    <script>
+        // __________ Typed ____________
+        var typed = new Typed('#typeText', {
+            strings: ["Fashion", "Shop" , "On" , "The","Lack"],
+            typeSpeed: 100,
+            loop:true
+        });
+
+
+        // __________ Carousel ____________
+        var myCarousel = document.querySelector('#carouselExampleCaptions')
+        var carousel = new bootstrap.Carousel(myCarousel, {
+            interval: 3000,
+            // wrap: false
+        })
+
+
+        function createSlick(){
+            $('.slider').slick({
+            centerMode: true,
+            dots:true,
+            autoplay:true,
+            centerPadding: '60px',
+            slidesToShow: 3,
+            responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        Infinity:true,
+                        slidesToShow: 1
+                    },
+                    // breakpoint: 480,
+                    // settings: {
+                    //     arrows: false,
+                    //         terMode: true,
+                    //     centerPadding: '40px',
+                    //                 how: 1
+                    // }
+                }]
+            });
+        }
+        createSlick();
+        $(window).on('resize',createSlick)
+    </script>
+
+  </body>
+</html>

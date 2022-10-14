@@ -1,0 +1,903 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+
+
+/* ============================================ ------ 0. Variables ------ ===================================================*/
+:root{
+    --color-button: black;
+    --body-color :white; /**/
+    --bg-primary : #007bff;
+    --text-dark:#343a40;
+    --text-scondary: #cfcfcf;
+    --shadow:rgba(100, 100, 111, 0.2) 0px 1px 29px 0px;
+    --hoverBackgroundColor : #24a0ed;
+    --paralaxImage:url(img/Banner8.jpg);
+    --NextPreviewColor:white;
+}
+
+.themeDiv img:active{
+    animation: ifram 2s;
+}
+
+@keyframes ifram{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(720deg);
+    }
+}
+
+
+/* ============================================ ------ 0.1 Colors For Theme ------ ===================================================*/
+/*#region _____1. Home______*/
+input{
+    /* background-color: var(--body-color) !important; */
+    color: var(--text-dark) !important;
+    box-shadow: none !important; 
+}
+textarea{
+    background-color: var(--body-color) !important;
+    color: var(--text-dark) !important;
+}
+
+input{
+    transition: 0.8s;
+}
+input:focus{
+    border-bottom:2px solid #ffc107 !important;
+}
+
+
+.form-label{
+    color: var(--text-dark) !important;
+}
+
+.aboutsUsText{
+    color: var(--text-dark) !important;
+}
+
+.navbar-sticky{
+    background-color: var(--bg-primary);
+    /* background-color: black !important; */
+}
+.section-heading p{
+    color: var(--text-dark);
+}
+body{
+    font-family: 'Ubuntu',sans-serif;
+    /* background-color: var(--body-color) !important; */
+    transition: 0.2s;
+}
+#footer{
+    transition: 0.2s;
+}
+
+
+
+.bg-black{
+    background-color: black !;
+}
+
+#footer{
+    background-color: var(--bg-primary);
+}
+
+.small-ratings {
+    color: var(--text-dark) !important;
+}
+
+.review-stat{
+    color: var(--text-dark) !important;
+}
+
+
+/*#endregion*/
+
+
+/* ============================================ ------ 1. Global Style ------ ===================================================*/
+/* #region Global_Page_Work*/
+/* ============================================
+    1. ScrollBar
+   ==========================================*/
+::-webkit-scrollbar{
+    width: 6px;
+}
+::-webkit-scrollbar-track{
+    background-color:var(--bg-primary);/*#24a0ed;*/
+}
+::-webkit-scrollbar-thumb{
+    background-color: orange ;
+    /* border-radius: 5px; */
+}
+
+
+
+/* ============================================
+    2. Navbar
+   ==========================================*/
+/*_____ Nav Hover Animation____*/
+#ul li .li_a{
+    position: relative !important;
+}
+#ul li .li_a::before{
+    content: '' !important;
+    display: block !important;
+    position: absolute;
+    width: 95% !important;
+    height: 5% !important;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: 0.5s;
+}
+#ul .li_a:hover::before{
+    transform: scaleX(1);
+}
+
+.act::after{
+    content: '' !important;
+    display: block !important;
+    position: absolute;
+    width: 95% !important;
+    height: 5% !important;
+    bottom: 0;
+    left: 0;
+    background-color: #ffc107;
+    transition: 0.5s;
+}
+
+/* ___ hide from cardDetail __ */
+.gotoCard::after{
+    content: ''!important;
+    display: none;
+    background-color: transparent;
+}
+
+
+/*_____ Nav Scroll Animation ____*/
+.navbar-sticky{
+    -webkit-transition: none;
+    transition: none;
+    z-index: 999;
+    width: 100%;
+}
+.navbar-sticky-transitioned{
+    /* go back to Top animation */
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.navbar-sticky-moved-up{
+    position: fixed !important;
+    top:0 !important;
+    margin-top: -6.25rem ;
+}
+.navbar-sticky-on{
+    /* when going end animation */
+    margin-top:0;
+    -webkit-transition: .4s;
+    transition: .4s;
+    -webkit-box-shadow: rgba(0,0,0,0.1) 0px 0px 20px;
+    box-shadow: rgba(0,0,0,0.1) 0px 0px 20px;
+}
+
+
+/* ============================================
+    3. BackTo Top Button
+   ==========================================*/
+
+/*_____ BackToTop Button Animation ____*/
+#scrollUp{
+    z-index: 1;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s;
+}
+#scrollUp span{
+    line-height: 2.625rem;   
+}
+#scrollUp.scrollActive{
+    display: block !important;
+}
+
+
+/* ============================================
+    4. DropDown 
+   ==========================================*/
+
+/* ___ Adding Arrow Style _____ */
+.dropdown-menu::before {
+    content: " ";
+    position: absolute;
+    display: block;
+    top: -20px;
+    right: 40px;
+    border: 10px solid transparent;
+    border-bottom-color: #fff;
+} 
+
+/* ___ Hide ScrollBar Tracker ____ */
+.scrol-div::-webkit-scrollbar-track {
+    display: none;
+}
+/* ___ scroll thumb ____ */
+.scrol-div::-webkit-scrollbar-thumb{
+    background-color: #24a0ed;
+    border-radius: 100px; 
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrol-div {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* #endregion */
+
+
+/* ============================================ ------ 2. Home Page ------ ===================================================*/
+/* #region Home_Page */
+/* ============================================
+    1. Banner-Section Top
+   ==========================================*/
+
+/*______ Crousel Banner ______*/
+/* icon */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    height: 100px;
+    width: 100px;
+    background-size: 50%, 50%;
+}
+/* Fade Effect */
+.carousel-item {
+    transition: all 1.2s ease-in-out;
+}
+/* opacity on Fade Effect */
+.carousel-inner .active.carousel-item-start,
+.carousel-inner .active.carousel-item-end {
+    transition: opacity 0s 2.6s;
+}
+
+
+/* _______ bottom Banner _______ */
+.top-menu .card{
+    cursor: pointer;
+    overflow: hidden;
+}
+.top-menu .card::after{
+    content: '';
+    height: 102%;
+    width: 102%;
+    background-color: blue;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    transform: scaleY(0);
+    transform-origin:center;
+    transition: 0.4s;
+    opacity: 0.3;
+}
+.top-menu .card:hover::after{
+    transform: scaleY(1);
+}
+.top-menu .card img{
+    width: 100%;
+    height: 100%;
+    transition: transform 500ms ease;
+}
+.top-menu .card:hover img{
+    transform: scale(1.1);
+}
+
+
+/* ============================================
+    2. Global heading
+   ==========================================*/
+.section-heading  {
+  padding: 4.25rem 0 4rem;
+}
+.section-heading > h2{
+position: relative;
+padding-bottom: 1.1rem;
+margin-bottom: 1.5rem;
+}
+.section-heading > h2::after{
+position: absolute;
+content: '';
+height:0.200rem;
+width: 7.563rem;
+background-color:#24a0ed;
+left:50%;
+bottom:0;
+-webkit-transform: translate(-50%);
+transform: translate(-50%);
+}
+
+
+/* ============================================
+    3. Category Section
+   ==========================================*/
+.imgCart2{
+    opacity: 0 !important;
+    transition: 0.3s !important;
+}
+
+.iOnhover:hover .imgCart2{
+    opacity: 1 !important;
+}
+
+
+/* ============================================
+    4. Parallax Section
+   ==========================================*/
+.parallax{
+    widows:100%;
+    height: 650px;
+    background-image: var(--paralaxImage);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/* ============================================
+    4. Offer Section
+   ==========================================*/
+/*____ Offer Section ____*/
+.offers_wrapper .card{
+    height: 100%;
+    min-height: 260px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #f2f2f2;
+    position: relative;
+}
+
+/*____ Slick Slider ____*/
+.slick-slider button {
+    position: absolute;
+    top: 50%;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    z-index: 100;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    transform: translate(0%, -70%);
+    border-radius: 36px;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.07);
+}
+
+.slick-slider .slick-prev{
+    left:-30px;
+    font-size: 0;
+}
+.slick-slider .slick-prev::before{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content:"\f104";
+    font-size: 30px;
+    color:#ffc107;
+    position: relative;
+    line-height: 1;
+}
+.slick-slider .slick-next{
+    right:-30px;
+    font-size: 0;
+}
+.slick-slider .slick-next::after{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content:"\f105";
+    font-size: 30px;
+    color:#ffc107;
+    position: relative;
+    line-height: 1;
+}
+.slick-slide {
+    padding:40px 0;
+    font-size: 1.25em;
+    font-family: "Verdana";
+    text-align: center;
+    opacity: 0.5;
+    transition: all 300ms ease;
+    position: relative;
+    z-index: 99;
+}
+
+.slick-slider .desc{
+    opacity: 0;
+}
+.slick-slide .desc >*{
+    transition: all 500ms ease;
+}
+.slick-slide img {
+    width: 100%;
+}
+
+/* dots desgin */
+.slick-dots{
+    text-align: center;
+}
+.slick-dots li{
+    display: inline-block;
+    padding: 1px;
+    background-color: #ccc;
+    margin: 10px 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.slick-dots li.slick-active{
+    background:#ffc107;
+}
+
+/* hide button */
+.slick-dots button{
+    display: none;
+}
+/* __Animation__ */
+/* .slick-slide {
+    
+} */
+.slick-current {
+    opacity: 1;
+    transform: scale(1.1);
+    z-index: 99999;
+    position: relative;
+}
+.slick-current .card{
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.slick-current .desc {
+    opacity: 1 !important;
+}
+
+
+
+/* ============================================
+    5. Papular Section
+   ==========================================*/
+   #sliderPapular{
+    margin: 15px auto;
+    /* background: var(--body-color); */
+    color: var(--text-dark);
+    padding: 15px 0;
+    /* box-shadow: var(--shadow); */
+   }
+    #sliderPapular .slick-slide {
+        transition: all 900ms ease;
+    }
+    #sliderPapular .slick-current img{
+        box-shadow: var(--shadow);
+    }
+    #sliderPapular .desc h4 {
+        left: 50px;
+        line-height: 1;
+    }
+    #sliderPapular .desc small{
+        top: 50px;
+        opacity: 0;
+    }
+    #sliderPapular .slick-current .desc h4 {
+        left: 0;
+    }
+    #sliderPapular .slick-current .desc small{
+        top: 0;
+        opacity: 1;
+        cursor: pointer;
+    }
+
+
+    /* ___ homeCardIcon ___ */
+    .homeCardIcon{
+        color: var(--text-scondary);
+        cursor: pointer;
+    }
+    .homeCardIcon:hover{
+        color: #24a0ed;
+    }
+    .homeCardIcon:hover:nth-child(2){
+        color:red;
+    }
+/* ============================================
+    3. Feature Section
+   ==========================================*/
+
+/* box size */
+.feature_wrapper .feature-box{
+    transition: all 0.3s;
+    background-color: var(--body-color) !important;
+    box-shadow: var(--shadow)
+}
+/* border on box */
+.feature_wrapper .feature-box .feature-icon-border{
+    border:0.15rem solid whitesmoke;
+}
+/* background on icon */
+.feature_wrapper .feature-box .feature-icon{
+    background-color: whitesmoke;
+    align-items: center;
+    justify-content: center;
+}
+/* hover on box */
+.feature_wrapper .feature-box:hover{
+    /* background-color:#03262c !important; */
+    background-color:var(--hoverBackgroundColor) !important;
+    /* border-color:#03262c !important; */
+    /* background-color: #24a0ed !important; */
+}
+.feature_wrapper .feature-box:hover h3{
+    color: white;
+}
+
+
+
+/* ============================================
+    4. Review Section
+   ==========================================*/
+/* ____ Review _____ */
+.review_wrapper{
+    width: 100%;
+    height: auto;
+    background-image: url(img/Banner2.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    padding: 20px;
+}
+.review_wrapper .carousel-item{
+    min-width: auto;
+    height: 500px;
+}
+
+.review_wrapper .carousel-item img{
+    width: auto;
+    height: 200px;
+}
+.review_wrapper .carousel-control-prev-icon,
+.review_wrapper .carousel-control-next-icon{
+    filter:brightness(0.10);
+}
+
+/* #endregion Home_Page_end */
+
+
+/* ============================================ ------ 3. Product ------ ===================================================*/
+/* #region __Product__ */
+/* ============================================
+    1 . Card Section
+   ==========================================*/
+.product{
+    position: relative;
+    /* width: 235px; */
+    height: 340px;
+    background-color: #fff;
+    box-shadow:var(--shadow) ;/*0 5px 15px rgb(0, 0, 0,.2);*/
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    /* ___over___ */
+    overflow: hidden;
+    transition: 0.2s;
+    
+}
+.product:hover{
+    z-index: 9;
+    transform: translateY(-15px);
+    /* transform: scale(1.2); */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px;
+}
+
+
+.product .imgbox{
+    height: 100%;
+    box-sizing: border-box;
+}
+.product .imgbox img{
+    display: block;
+    width: 87%;
+    height: 90%;
+    margin: 10px auto 0;
+}
+
+
+.details{
+    position: absolute;
+    width: 100%;
+    bottom: -110px;
+    background-color: #fff;
+    padding:10px;
+    box-sizing: border-box;
+    box-shadow: 0 0 0 rgb(0, 0, 0,0.1);
+    transition: .5s;
+}
+
+.product:hover .details{
+    bottom: 0px;
+}
+
+.details h2{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    width: 100%;
+}
+
+.details h2 span{
+    font-size: 12px;
+    color: rgb(134, 126, 134);
+    font-weight: normal;
+}
+
+.details .price{
+    position: absolute;
+    top: 10px;
+    right:20px;
+    font-weight: bold;
+    color: #ff4faf;
+    font-size: 16px;
+}
+label{
+    display: block;
+    margin-top:15px ;
+    font-weight: bold;
+    font-size: 14px;
+}
+.cardUl{
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+.cardUl li{
+    list-style: none;
+    margin: 5px 5px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ccc;
+}
+
+.cardUl li:first-child{
+    margin-left: 0;
+}
+
+#moreButton{
+    display: block;
+    padding: 5px;
+    color: #fff;
+    margin: 15px 0 0 0;
+    /* background: blueviolet; */
+    text-align: center;
+    text-decoration: none;
+    transition:.3s;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+#moreButton:hover{
+    color: #fff;
+    background: rgb(132, 0, 255) !important;
+}
+
+
+/* __ Card Button _ */
+#storeIcon{
+    transition: 0.2s;
+    padding: 2px !important;
+    width: 25px !important;
+    height: 25px !important;
+}
+#storeIcon:hover{
+    background-color: #24a0ed;
+}
+
+
+
+#storeIcon1{
+    transition: 0.2s;
+    padding: 2px !important;
+    width: 25px !important;
+    height: 25px !important;
+}
+
+#storeIcon1:hover{
+    background-color: red !important;
+}
+
+#storeIcon1 i{
+    font-size: 13px;
+}
+
+
+/* ============================================
+    2 . Modal Section
+   ==========================================*/
+/* __ btn __ */
+#modalBtn{
+    padding: 5px;
+    color: #fff;
+    margin: 15px 0 0 0;
+    /* background: blueviolet; */
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer
+}
+#modalBtn:hover{
+    color: #fff;
+    background: rgb(132, 0, 255) !important;
+}
+
+
+/* ============================================
+    3 . Pagination Section
+   ==========================================*/
+
+
+   #paginationRander li .page-link {
+    background-color: var(--hoverBackgroundColor);
+    color: white;
+    z-index: 9;
+   }
+   #paginationRander li .page-link{
+    z-index: 9 !important;
+   }
+   /* --text-scondary: #ffffff; */
+
+   #paginationRander .active{
+    background-color: var(--text-dark) !important;
+    color: orange !important;
+    z-index: 99;
+   }
+   .page-left{
+    width: 100px;
+    margin-right: 3px !important;
+    border-bottom-left-radius: 20px !important;
+    border-top-left-radius: 20px !important;
+   }
+   .page-left::after{
+    content: '';
+    position: absolute;
+    top:0px;
+    right:-15px;
+    background-color: var(--NextPreviewColor) !important;
+    width: 30%;
+    height: 100%;
+    border-radius: 100%;
+    /* z-index: 99 !important; */
+   }
+   .page-right{
+    width: 70px;
+    text-align: right;
+    margin-left: 3px !important;
+    border-bottom-right-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+   }
+   .page-right::before{
+    content: '';
+    position: absolute;
+    top:0px;
+    left:-12px;
+    background-color:var(--NextPreviewColor) !important;
+    width: 30%;
+    height: 100%;
+    border-radius: 100%;
+    z-index: -9 !important;
+   }
+/* #endregion __Product__ */
+
+
+/* ============================================ ------ 4. FeedBack Page ------ ===================================================*/
+/* #region Feed Back*/
+.height-100{
+    height:100vh;
+}
+
+.rateCard{
+    width:500px;
+    height:280px;
+}
+
+.ratings{
+    margin-right:10px;
+}
+
+.ratings i{
+    
+    color:#cecece;
+    font-size:32px;
+}
+
+.rating-color{
+    color:#fbc634 !important;
+}
+
+.review-count{
+    font-weight:400;
+    margin-bottom:2px;
+    font-size:24px !important;
+}
+
+.small-ratings i{
+    color:#cecece;   
+}
+
+.review-stat{
+    font-weight:300;
+    font-size:18px;
+    margin-bottom:2px;
+}
+
+
+/* ________Rate change__________ */
+.star{
+    color: goldenrod;
+    font-size: 2.0rem;
+    padding: 0px; /* space out the stars */
+}
+    .star::before{
+        content: '\2606';    /* star outline */
+        cursor: pointer;
+}
+.star.rated::before{
+    /* the style for a selected star */
+    content: '\2605';  /* filled star */
+    color: #fbc634;
+}
+    
+.stars1 , .stars2,.stars3,.stars4,.stars5,.stars6{
+    counter-reset: rateme 0;   
+    font-size: 20px;
+    font-weight: 900;
+    margin-right: 5px;
+}
+
+/* ____Will Change by JS___ */
+.star1.rated , .star2.rated,.star3.rated,.star4.rated,.star5.rated,.stars6.rated{
+    counter-increment: rateme 1;
+}
+
+.stars1::after , .stars2::after , .stars3::after , .stars4::after , .stars5::after , .stars6::after {
+    content: counter(rateme) '/5';
+}
+
+
+/* #endregion */
+
+
+/* ============================================ ------ 3. Card_Detail Page ------ ===================================================*/
+/* #region Card_Detail_Page*/
+/* =========================================
+    1. Product Zoom in
+   =======================================*/
+
+/* Card_Detail Page ____ */
+.product_img{
+    /* background-color: red; */
+    overflow: hidden;
+}
+.product_img img{
+    transform: scale(0.6);
+    transition: 0.2s;
+}
+.product_img:hover img{
+    transform: scale(1);
+}
+
+
+/* __ Sticky Div __ */
+.div-sticky{
+    top:70px;
+}
+/* #endregion */
+
+
+
+

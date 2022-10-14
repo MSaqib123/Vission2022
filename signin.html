@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>TFS Offical</title>
+    <!-- Required meta tags -->
+    <link rel="shortcut icon" href="img/logo6.png" type="image/x-icon">
+    
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="login and SingUp.css">
+    <!-- ___________Roboto Fonts__________ -->
+    <link href="http://fonts.cdnfonts.com/css/open-sans" rel="stylesheet">
+    <!-- ___________ Font Awesome __________ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body class="bg-white">
+    <section class="wrapper">
+        <div class="container">
+          <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4 text-center">
+            <!-- ___Logo___ -->
+            <div class="logo pb-3 pt-3">
+              <img src="img/Logo2.png" class="img-fluid" alt="logo"/>
+            </div>
+            <!-- __form__ -->
+            <form class="rounded bg-white shadow p-5">
+              <!-- __header__ -->
+              <h3 class="text-dark fw-bolder">Singn In to HillTop</h3>
+              <!-- __create account__ -->
+              <div class="fw-normal text-muted mb-4">
+                New Here? <a href="signupForm.html" class="text-primary fw-bold text-decoration-none"> &nbsp; Create an Account</a>
+              </div>
+              <!-- __Fields__ -->
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control login" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control login" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+              </div>
+              <!-- __forget___ -->
+              <div class="mt-2 text-end">
+                <a href="#" class="text-primary fw-bold text-decoration-none">Forget Password?</a>
+              </div>
+
+              <!-- __ continue ___ -->
+              <a href="#" class="btn btn-primary submit-btn w-100 my-4" id="loginbtn">Continue</a>
+              <div class="text-center text-muted text-uppercase mb-3">or</div>
+              
+              <!-- ___shohal Media___ -->
+              <a href="#" class="btn btn-light login_with w-100 mb-3">
+                <img src="img/google-icon.svg" class="img-fluid me-3"/>Continue with Google
+              </a>
+              <a href="#" class="btn btn-light login_with w-100 mb-3">
+                <img src="img/facebook-icon.svg" class="img-fluid me-3"/>Continue with Facebook
+              </a>
+              <a href="#" class="btn btn-light login_with w-100 mb-3">
+                <img src="img/linkedin-icon.svg" class="img-fluid me-3"/>Continue with Linkedin
+              </a>
+            </form>
+          </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+
+    <script>
+      let login = localStorage.getItem("logger");
+      if(login == 1 || login == 2){
+        localStorage.setItem("logger",0);
+      }
+      else/* if(login == "guest")*/{
+        localStorage.setItem("logger","guest");
+      }
+
+
+
+      // ___________________________ Verifing User ______________________________-
+      document.getElementById("loginbtn").addEventListener("click",function(e){
+      //alert("working");
+      let input = document.getElementsByClassName("login");
+      let email = input[0].value;
+      let password = input[1].value;
+
+      //______________ Static login ________________
+      //#region 
+      // if(email == userArray && password == "123"){
+      //   window.location.href = "home.html";
+      //   // __Storeing Value to local__
+      //   localStorage.setItem("userName",input[0].value); 
+      // }
+      // else{
+      //   if(input =="" || email==""){
+      //       Swal.fire({
+      //       icon: 'info',
+      //       title: 'Enter Email Password!',
+      //       text: 'Try again',
+      //       allowOutsideClick: false,
+      //       footer: '<a href="">Why do I have this issue?</a>'
+      //     })
+      //   }
+      //     else{
+      //       Swal.fire({
+      //       icon: 'error',
+      //       title: 'Invalid User!',
+      //       text: 'Try again',
+      //       allowOutsideClick: false,
+      //       footer: '<a href="">Why do I have this issue?</a>'
+      //     })
+      //   }
+      // }
+      //#endregion
+
+      //______________ Login By Local Host _________________
+      let number = 0;
+      let userArray =  JSON.parse(localStorage.getItem("userTable"));
+      if(email =="" || password==""){
+        Swal.fire({
+            icon: 'error',
+            title: 'Empty Fields',
+            text: 'Try again',
+            allowOutsideClick: false
+          })
+      }
+      else{
+        if(userArray == null){
+        Swal.fire({
+            icon: 'error',
+            title: 'SignUp Account Again',
+            text: 'Try again',
+            allowOutsideClick: false,
+            footer: '<a href="signupForm.html">Go To SignUp</a>'
+          })
+        }
+        else{
+          userArray.find((user)=>{
+            if(email == user.uEmail  && password == user.uPassword){
+              window.location.href = "index.html";
+              // __ Showing userValue __
+              let detaiAfterLogin = {
+                userName : user.fullName,
+                type: user.uType,
+                id : user.uId
+              }
+              localStorage.setItem("detaiAfterLogin",JSON.stringify(detaiAfterLogin)); 
+              number = 1;
+              // __ Authenticaltion __
+              localStorage.setItem("logger","1");
+            }
+            else{
+            }
+          })
+        }
+      }
+
+      // _____ login Fail ____
+      if(number == 0){
+        Swal.fire({
+          icon: 'error',
+          title: 'Invalid User!',
+          text: 'Try again',
+          allowOutsideClick: false,
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
+      }
+    })
+
+
+
+  /* ==========================================================================================
+    set Editor Name
+   =========================================================================================*/
+   let userTable = JSON.parse(localStorage.getItem("userTable"));
+   if(userTable == null){
+    let editor = [{
+      uId : 1,
+      fullName : "M Boota",
+      uEmail : "m43577535@gmail.com",
+      uPassword : "boota12345",
+      uType : "creater",
+    }];
+    localStorage.setItem("userTable",JSON.stringify(editor))
+   }
+  </script>
+  </body>
+</html>
